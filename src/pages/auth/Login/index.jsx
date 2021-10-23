@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import styles from "./Login.module.css";
 import TickitzWhite from "../../../assets/img/tickitz white.png";
-import TickitzPurple from "../../../assets/img/tickitz purple.png";
 import Quote from "../../../assets/img/quote.png";
 import Image from "../../../assets/img/image 1.png";
-import Google from "../../../assets/img/google.png";
-import Facebook from "../../../assets/img/facebook.png";
 import FormLogin from "../../../components/Forms/Login";
 
 class Login extends Component {
