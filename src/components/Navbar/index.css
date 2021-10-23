@@ -1,0 +1,19 @@
+.nav__item {
+  color: #414141 !important;
+  padding-left: 30px !important;
+}
+
+#navbarScrollingDropdown {
+  color: #414141;
+}
+
+.search__form {
+  display: none !important;
+}
+
+.button__signup {
+  background-color: #5f2eea !important;
+  color: #ffffff !important;
+  border-color: #5f2eea !important;
+  margin-left: 30px !important;
+}
