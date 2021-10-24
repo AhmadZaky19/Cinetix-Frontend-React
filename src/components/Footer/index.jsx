@@ -13,7 +13,7 @@ import "./index.css";
 class Footer extends Component {
   render() {
     return (
-      <Container>
+      <Container className="footer__row">
         <Row>
           <Col sm={12} md={4}>
             <img src={TickitzPurple} alt="" />
