@@ -1,0 +1,126 @@
+.jumbotron {
+  margin: 20px 78px !important;
+  justify-content: space-between;
+}
+
+.jumbotron__quote {
+  text-align: left;
+  padding-top: 11em;
+}
+
+.jumbotron__image {
+  padding-left: 4em;
+  width: 80%;
+}
+
+.jumbotron__quote p {
+  color: #a0a3bd;
+  font-size: 25px;
+}
+
+.jumbotron__quote h1 {
+  color: #5f2eea;
+  font-size: 60px;
+}
+
+.movie__now {
+  background-color: #f5f6f8;
+  /* padding-bottom: -20px; */
+}
+
+.movie__now--title {
+  margin: 40px 80px 80px auto !important;
+  padding-right: 100px !important;
+  padding-left: 100px !important;
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+  color: #5f2eea;
+}
+
+.movie__now--title h4 {
+  border-bottom: 0.2em solid #5f2eea;
+  padding-bottom: 10px;
+}
+
+.movie__upcoming--title {
+  margin: 40px 80px 80px auto !important;
+  margin-bottom: 30px !important;
+  padding-right: 100px !important;
+  padding-left: 100px !important;
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+  color: #5f2eea;
+}
+
+.movie__upcoming--title h4 {
+  color: black;
+  padding-bottom: 10px;
+}
+
+.movie__upcoming--month {
+  margin-left: 5rem;
+  margin-bottom: 7rem;
+}
+
+.movie__upcoming--month-button {
+  width: 5%;
+  margin-right: 2rem;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  background-color: #ffffff !important;
+  color: #5f2eea !important;
+  border-color: #5f2eea !important;
+  box-sizing: content-box !important;
+}
+
+.movie__upcoming--month-button:focus {
+  background-color: #5f2eea !important;
+  color: #ffffff !important;
+}
+
+.moviegoers {
+  /* border: 2px solid #a0a3bd; */
+  border-radius: 15px;
+  box-shadow: 1px 1px 5px 10px #f5f6f8;
+  margin: auto;
+  width: 85% !important;
+  padding-left: 12em !important;
+  padding-right: 12em !important;
+  padding-top: 2em !important;
+  padding-bottom: 2em !important;
+  text-align: center;
+}
+
+.moviegoers h4 {
+  color: #4e4b66;
+}
+
+.moviegoers h1 {
+  color: #5f2eea;
+  font-size: 50px;
+}
+
+.moviegoers__join {
+  display: flex;
+  justify-content: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.moviegoers__join--form {
+  width: 35% !important;
+  margin-right: 1em;
+  border-radius: 5px !important;
+}
+
+.moviegoers__join--button {
+  border-radius: 5px !important;
+  background-color: #5f2eea !important;
+  border-color: #5f2eea !important;
+}
+
+.moviegoers__join--caption p {
+  color: #6e7191;
+}
