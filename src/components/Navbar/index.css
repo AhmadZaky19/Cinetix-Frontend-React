@@ -1,10 +1,13 @@
 .nav__item {
   color: #414141 !important;
-  padding-left: 30px !important;
+  padding-left: 3em !important;
+  font-size: 20px;
 }
 
 #navbarScrollingDropdown {
   color: #414141;
+  font-size: 20px;
+  margin-right: 40px;
 }
 
 .search__form {
@@ -15,5 +18,8 @@
   background-color: #5f2eea !important;
   color: #ffffff !important;
   border-color: #5f2eea !important;
-  margin-left: 30px !important;
+  border-radius: 10px !important;
+  margin-left: 50px !important;
+  padding: 10px 35px !important;
+  font-size: 20px !important;
 }

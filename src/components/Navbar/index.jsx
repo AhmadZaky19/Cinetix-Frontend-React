@@ -16,8 +16,8 @@ class Navigation extends Component {
               <img
                 alt=""
                 src={TickitzPurple}
-                width="120"
-                height="50"
+                width="140"
+                height="60"
                 className="d-inline-block align-top"
               />{" "}
             </Navbar.Brand>
@@ -47,7 +47,7 @@ class Navigation extends Component {
                   aria-label="Search"
                 />
               </Form>
-              <Search />
+              <Search size={24} />
               <Button variant="outline-success" className="button__signup">
                 Sign Up
               </Button>
