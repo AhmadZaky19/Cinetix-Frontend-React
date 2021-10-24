@@ -1,0 +1,65 @@
+.img-thumbnail {
+  padding: 2em;
+  width: 90%;
+  border-radius: 0.7em;
+}
+
+.movieDetail {
+  padding-top: 3em;
+}
+
+.movieDetail__desc h6 {
+  padding-top: 0.3em;
+  padding-bottom: 1em;
+  color: #4e4b66;
+  font-size: 17px;
+}
+
+.movieDetail__desc--section p {
+  color: #8692a6;
+  margin-bottom: 0em;
+}
+
+.movieDetail__desc--section h6 {
+  margin-bottom: 0.3em;
+}
+
+.movieSyn {
+  padding-top: 3em;
+}
+
+.movieSyn p {
+  color: #4e4b66;
+  text-align: justify;
+  font-size: 1.1em;
+}
+
+.showtime {
+  padding-top: 7em;
+}
+
+.showtime h4 {
+  text-align: center;
+}
+
+.showtime__filter {
+  padding-top: 3em;
+  padding-left: 12em;
+  padding-right: 12em;
+  display: flex;
+  justify-content: center;
+}
+
+.showtime__filter input {
+  width: 14%;
+  background-color: #eff0f6;
+  margin-right: 3em;
+  color: #4e4b66;
+}
+
+.showtime__filter select {
+  width: 14%;
+  background-color: #eff0f6;
+  margin-right: 4em;
+  color: #4e4b66;
+}
