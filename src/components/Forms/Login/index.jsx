@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import axios from "../../../utils/axios";
 import styles from "./FormLogin.module.css";
 import TickitzPurple from "../../../assets/img/tickitz purple.png";
 import Google from "../../../assets/img/google.png";
 import Facebook from "../../../assets/img/facebook.png";
-import axios from "../../../utils/axios";
 
 class FormLogin extends Component {
   constructor() {
@@ -19,7 +20,6 @@ class FormLogin extends Component {
   }
 
   handleChangeForm = (event) => {
-    // console.log("User sedang mengetik");
     this.setState({
       form: {
         ...this.state.form,
@@ -30,32 +30,28 @@ class FormLogin extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // console.log("Submit Login");
     axios
       .post("auth/login", this.state.form)
       .then((res) => {
-        console.log(res.data);
         localStorage.setItem("token", res.data.data.token);
         this.props.history.push("/home");
       })
       .catch((err) => {
-        console.log(err.response);
-        // this.setState({
-        //   isError: true,
-        //   msg: err.response.data.msg
-        // });
-        // setTimeout(() => {
-        //   this.setState({
-        //     isError: false,
-        //     msg: ""
-        //   });
-        // }, 3000);
+        this.setState({
+          isError: true,
+          msg: err.response.data.msg
+        });
+        setTimeout(() => {
+          this.setState({
+            isError: false,
+            msg: ""
+          });
+        }, 3000);
       });
   };
 
   handleReset = (event) => {
     event.preventDefault();
-    // console.log("Reset Login");
   };
 
   render() {
@@ -130,4 +126,4 @@ class FormLogin extends Component {
   }
 }
 
-export default FormLogin;
+export default withRouter(FormLogin);
