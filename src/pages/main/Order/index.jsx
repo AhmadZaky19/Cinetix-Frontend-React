@@ -22,7 +22,7 @@ class OrderPage extends Component {
                   </Card.Body>
                 </Card>
               </div>
-              <h2>Choose Your Seat</h2>
+              <h2 className="chooseSeat">Choose Your Seat</h2>
               <div className="seat">
                 <Card className="card">
                   <Card.Body className="card-body">
@@ -30,7 +30,7 @@ class OrderPage extends Component {
                   </Card.Body>
                 </Card>
               </div>
-              <div className="seat__booking">
+              <div className="seat__booking desktop__only">
                 <Button className="seat__booking--change">Change your movie</Button>
                 <Button className="seat__booking--book">Checkout now</Button>
               </div>
@@ -69,12 +69,12 @@ class OrderPage extends Component {
                         <h4 className="total__caption--price">$30</h4>
                       </div>
                     </div>
-                    <div>
-                      <Button className="seat__booking--bookMobile">Checkout now</Button>
-                    </div>
                   </Col>
                 </Card.Body>
               </Card>
+              <div>
+                <Button className="seat__booking--bookMobile">Checkout now</Button>
+              </div>
             </Col>
           </Row>
         </Container>

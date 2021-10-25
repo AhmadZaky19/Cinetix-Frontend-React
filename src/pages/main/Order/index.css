@@ -29,6 +29,10 @@
   padding: 0.5em 1em !important;
 }
 
+.chooseSeat {
+  padding-bottom: 0.7em;
+}
+
 .seat__booking {
   display: flex;
   justify-content: space-between;
@@ -117,4 +121,29 @@
 
 .seat__booking--bookMobile {
   display: none !important;
+}
+
+@media (max-width: 480px) {
+  .order__page {
+    padding: 2em 1em !important;
+  }
+
+  .order__info {
+    padding-top: 1.5em;
+  }
+
+  .desktop__only {
+    display: none;
+  }
+
+  .seat__booking--bookMobile {
+    display: block !important;
+    width: 100%;
+    margin-top: 2em;
+    padding-top: 0.4em !important;
+    padding-bottom: 0.4em !important;
+    font-size: 20px !important;
+    background-color: #5f2eea !important;
+    border-color: #5f2eea !important;
+  }
 }
