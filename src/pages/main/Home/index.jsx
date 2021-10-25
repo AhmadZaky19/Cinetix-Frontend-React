@@ -3,12 +3,79 @@ import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import Navbar from "../../../components/Navbar";
 import CardMovieNow from "../../../components/Card/MovieNow";
 import CardMovieUpcoming from "../../../components/Card/MovieUpcoming";
+import axios from "../../../utils/axios";
 import Footer from "../../../components/Footer";
 import GroupMovie from "../../../assets/img/group movie.png";
 import "./index.css";
 
 class HomePage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      data: [],
+      page: 1,
+      limit: 5,
+      sort: "releaseDate",
+      order: "DESC"
+      // pageInfo: {}
+    };
+  }
+
+  componentDidMount() {
+    this.getDataMovie();
+    // this.getDataMovieUpcoming();
+  }
+
+  getDataMovie = () => {
+    axios
+      .get(`movie?page=${this.state.page}&limit=${this.state.limit}`)
+      .then((res) => {
+        this.setState({
+          data: res.data.data
+        });
+      })
+      .catch((err) => {
+        this.setState({
+          msg: err.response.data.msg
+        });
+      });
+  };
+
+  // getDataMovieUpcoming = () => {
+  //   axios
+  //     .get(
+  //       `movie?sort=${this.state.sort}&order=${this.state.order}&page=${this.state.page}&limit=${this.state.limit}`
+  //     )
+  //     .then((res) => {
+  //       this.setState({
+  //         data: res.data.data
+  //         // pageInfo: res.data.pagination
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       this.setState({
+  //         msg: err.response.data.msg
+  //       });
+  //     });
+  // };
+
+  handlePagination = () => {
+    this.setState(
+      {
+        limit: 10
+      },
+      () => {
+        this.getDataMovie();
+      }
+    );
+  };
+
+  handleDetail = (data) => {
+    this.props.history.push(`/movie-detail/${data}`);
+  };
+
   render() {
+    const { data } = this.state;
     return (
       <>
         <Navbar />
@@ -25,9 +92,13 @@ class HomePage extends Component {
           <Row className="movie__now">
             <div className="movie__now--title">
               <h4>Now Showing</h4>
-              <h6>view all</h6>
+              <h6 onClick={this.handlePagination}>view all</h6>
             </div>
-            <CardMovieNow />
+            {data.map((item) => (
+              <div className="col-md-2 card__movie" key={item.id}>
+                <CardMovieNow data={item} handleDetail={() => this.handleDetail(item.id)} />
+              </div>
+            ))}
           </Row>
           <Row className="movie__upcoming">
             <div className="movie__upcoming--title">
@@ -46,7 +117,11 @@ class HomePage extends Component {
               <Button className="movie__upcoming--month-button">May</Button>
               {/* <Button className="movie__upcoming--month-button">June</Button> */}
             </div>
-            <CardMovieUpcoming />
+            {data.map((item) => (
+              <div className="col-md-2 card__movie" key={item.id}>
+                <CardMovieUpcoming data={item} handleDetail={this.handleDetail} />
+              </div>
+            ))}
           </Row>
           <Row>
             <div className="moviegoers">

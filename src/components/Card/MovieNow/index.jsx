@@ -1,73 +1,30 @@
 import React, { Component } from "react";
 import { Card, Button } from "react-bootstrap";
 import "../index.css";
-import LionKing from "../../../assets/img/Lionking.png";
 
 class CardMovieNow extends Component {
   render() {
+    const { id, name, category, image } = this.props.data;
     return (
       <>
         <Card className="cardMovie__now">
-          <Card.Img variant="top" src={LionKing} />
-          <Card.Body className="cardMovie__now--desc">
-            <Card.Title className="cardMovie__now--title">The Lion king</Card.Title>
-            <Card.Text className="cardMovie__now--genre">Adventure, Slice of Life</Card.Text>
-            <Button variant="primary" className="cardMovie__now--detail">
-              Details
-            </Button>
-            <Button variant="primary" className="cardMovie__now--book">
-              Book now
-            </Button>
-          </Card.Body>
-        </Card>
-        <Card className="cardMovie__now">
           <Card.Img
             variant="top"
-            src="https://www.a1hosting.net/wp-content/themes/arkahost/assets/images/default.jpg"
+            className="cardMovie__now--img"
+            src={
+              image
+                ? `http://localhost:3001/uploads/movie/${image}`
+                : "https://www.a1hosting.net/wp-content/themes/arkahost/assets/images/default.jpg"
+            }
           />
           <Card.Body className="cardMovie__now--desc">
-            <Card.Title className="cardMovie__now--title">The Lion king</Card.Title>
-            <Card.Text className="cardMovie__now--genre">Adventure, Slice of Life</Card.Text>
-            <Button variant="primary" className="cardMovie__now--detail">
-              Details
-            </Button>
-            <Button variant="primary" className="cardMovie__now--book">
-              Book now
-            </Button>
-          </Card.Body>
-        </Card>
-        <Card className="cardMovie__now">
-          <Card.Img variant="top" src={LionKing} />
-          <Card.Body className="cardMovie__now--desc">
-            <Card.Title className="cardMovie__now--title">The Lion king</Card.Title>
-            <Card.Text className="cardMovie__now--genre">Adventure, Slice of Life</Card.Text>
-            <Button variant="primary" className="cardMovie__now--detail">
-              Details
-            </Button>
-            <Button variant="primary" className="cardMovie__now--book">
-              Book now
-            </Button>
-          </Card.Body>
-        </Card>
-        <Card className="cardMovie__now">
-          <Card.Img variant="top" src={LionKing} />
-          <Card.Body className="cardMovie__now--desc">
-            <Card.Title className="cardMovie__now--title">The Lion king</Card.Title>
-            <Card.Text className="cardMovie__now--genre">Adventure, Slice of Life</Card.Text>
-            <Button variant="primary" className="cardMovie__now--detail">
-              Details
-            </Button>
-            <Button variant="primary" className="cardMovie__now--book">
-              Book now
-            </Button>
-          </Card.Body>
-        </Card>
-        <Card className="cardMovie__now">
-          <Card.Img variant="top" src={LionKing} />
-          <Card.Body className="cardMovie__now--desc">
-            <Card.Title className="cardMovie__now--title">The Lion king</Card.Title>
-            <Card.Text className="cardMovie__now--genre">Adventure, Slice of Life</Card.Text>
-            <Button variant="primary" className="cardMovie__now--detail">
+            <Card.Title className="cardMovie__now--title">{name}</Card.Title>
+            <Card.Text className="cardMovie__now--genre">{category}</Card.Text>
+            <Button
+              variant="primary"
+              className="cardMovie__now--detail"
+              onClick={() => this.props.handleDetail(id)}
+            >
               Details
             </Button>
             <Button variant="primary" className="cardMovie__now--book">

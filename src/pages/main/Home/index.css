@@ -43,6 +43,14 @@
   padding-bottom: 10px;
 }
 
+.movie__now--title h6 {
+  cursor: pointer;
+}
+
+.col-md-2 .card__movie img {
+  width: 100% !important;
+}
+
 .movie__upcoming--title {
   margin: 40px 80px 80px auto !important;
   margin-bottom: 30px !important;
