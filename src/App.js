@@ -6,11 +6,11 @@ import BasicHome from "./pages/basic/Home";
 import BasicMovieDetail from "./pages/basic/DetailMovie";
 import Login from "./pages/auth/Login";
 import Home from "./pages/main/Home";
+import MovieDetail from "./pages/main/MovieDetail";
 
 class App extends Component {
   render() {
     return (
-      // <h1>App Page</h1>
       <Router>
         <Switch>
           <Route path="/basic-react" exact component={BasicReact} />
@@ -19,6 +19,7 @@ class App extends Component {
           <Route path="/basic-detail/:movieId" exact component={BasicMovieDetail} />
           <Route path="/login" exact component={Login} />
           <Route path="/home" exact component={Home} />
+          <Route path="/movie-detail" exact component={MovieDetail} />
         </Switch>
       </Router>
     );
