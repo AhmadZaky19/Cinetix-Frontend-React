@@ -1,0 +1,120 @@
+.order__page {
+  background-color: #f5f6f8;
+  padding: 3em 7em !important;
+}
+
+.movieBook {
+  margin-top: 2em;
+  margin-bottom: 3em;
+}
+
+.movieBook__desc {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.movieBook__desc h3 {
+  padding-top: 0.4em;
+}
+
+.movieBook__desc .movieBook__desc--change {
+  background-color: #eff0f6 !important;
+  border-color: #eff0f6 !important;
+  font-weight: 700 !important;
+  color: #5f2eea !important;
+  border-radius: 0.7em !important;
+  padding: 0.5em 1em !important;
+}
+
+.seat__booking {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2em;
+}
+
+.seat__booking Button {
+  width: 36%;
+  padding: 1em;
+  border-radius: 0.3em;
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.seat__booking--change {
+  background-color: #f5f6f8 !important;
+  color: #5f2eea !important;
+  border-color: #5f2eea !important;
+  padding: 0.5em 2.4em !important;
+  font-size: 1.4em !important;
+}
+
+.seat__booking--book {
+  background-color: #5f2eea !important;
+  color: #ffffff !important;
+  border-color: #5f2eea !important;
+  padding: 0.5em 2.4em !important;
+  font-size: 1.4em !important;
+}
+
+.order__info h2 {
+  padding-bottom: 0.7em;
+}
+
+.right {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+}
+
+.order__info--img {
+  padding-top: 2em;
+  padding-bottom: 1em;
+}
+
+.order__info--text {
+  padding-bottom: 1em;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.2em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.summary__order--field {
+  text-align: left;
+  color: #6b6b6b;
+  font-size: 1em;
+}
+
+.summary__order--desc {
+  text-align: right;
+  color: #14142b;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 2em;
+}
+
+.total__caption--price {
+  color: #5f2eea;
+  font-weight: 700;
+}
+
+.mobile__only {
+  display: none;
+}
+
+.seat__booking--bookMobile {
+  display: none !important;
+}
