@@ -4,6 +4,8 @@
   align-items: center !important;
   padding-top: 1.3em;
   padding-bottom: 1.3em;
+  padding-right: 1.3em;
+  padding-left: 1.3em;
   margin-top: -60px !important;
   margin-left: 80px;
   margin-bottom: 6em;
@@ -11,8 +13,9 @@
   border-color: #ffffff !important;
 }
 
-.cardMovie__now img {
-  width: 160px;
+.cardMovie__now--img {
+  height: 17em;
+  width: 11em !important;
 }
 
 .cardMovie__now--title {
