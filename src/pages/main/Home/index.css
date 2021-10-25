@@ -132,3 +132,30 @@
 .moviegoers__join--caption p {
   color: #6e7191;
 }
+
+@media (max-width: 480px) {
+  .homepage {
+    margin-left: 0 !important;
+  }
+
+  .jumbotron {
+    margin-top: -150px !important;
+    margin-left: 0 !important;
+    justify-content: left;
+  }
+
+  .jumbotron__quote p {
+    font-size: 15px;
+  }
+
+  .jumbotron__quote h1 {
+    font-size: 36px;
+  }
+
+  .jumbotron__image img {
+    margin-left: 1px !important;
+    padding-left: 1px !important;
+    padding-right: 50px !important;
+    width: 160%;
+  }
+}
