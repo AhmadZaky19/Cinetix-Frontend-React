@@ -24,7 +24,7 @@ class Navigation extends Component {
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll" className="nav__collapse">
               <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
-                <Nav.Link href="#" className="nav__item">
+                <Nav.Link href="/home" className="nav__item">
                   Home
                 </Nav.Link>
                 <Nav.Link href="#" className="nav__item">
