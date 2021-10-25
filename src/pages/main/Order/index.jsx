@@ -18,7 +18,9 @@ class OrderPage extends Component {
                 <Card className="movieBook">
                   <Card.Body className="movieBook__desc">
                     <h3>Spiderman Homecoming</h3>
-                    <Button className="movieBook__desc--change">Change movie</Button>
+                    <Button href="/home" className="movieBook__desc--change">
+                      Change movie
+                    </Button>
                   </Card.Body>
                 </Card>
               </div>
@@ -31,8 +33,12 @@ class OrderPage extends Component {
                 </Card>
               </div>
               <div className="seat__booking desktop__only">
-                <Button className="seat__booking--change">Change your movie</Button>
-                <Button className="seat__booking--book">Checkout now</Button>
+                <Button href="/home" className="seat__booking--change">
+                  Change your movie
+                </Button>
+                <Button href="/payment" className="seat__booking--book">
+                  Checkout now
+                </Button>
               </div>
             </Col>
             <Col xs={12} sm={12} md={4} className="order__info">
