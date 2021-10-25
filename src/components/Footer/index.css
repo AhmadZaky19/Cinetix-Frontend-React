@@ -30,3 +30,32 @@
   padding-top: 30px;
   text-align: center;
 }
+
+@media (max-width: 480px) {
+  .footer__item--explore {
+    display: flex;
+    margin-top: -20px !important;
+  }
+
+  .footer__item--explore p {
+    padding-right: 1em !important;
+  }
+
+  .footer__item--sponsor img {
+    width: 120px;
+    padding-right: 2em;
+  }
+
+  .footer__item--media {
+    display: inline-block;
+    margin-bottom: 10px !important;
+  }
+
+  .footer__item--media p {
+    display: none;
+  }
+
+  .footer__end p {
+    text-align: left;
+  }
+}

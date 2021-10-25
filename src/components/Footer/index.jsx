@@ -23,14 +23,16 @@ class Footer extends Component {
           </Col>
           <Col sm={12} md={2}>
             <h5 className="footer__item">Explore</h5>
-            <p>Cinemas</p>
-            <p>Movies List</p>
-            <p>My Ticket</p>
-            <p>Notification</p>
+            <div className="footer__item--explore">
+              <p>Cinemas</p>
+              <p>Movies List</p>
+              <p>My Ticket</p>
+              <p>Notification</p>
+            </div>
           </Col>
           <Col sm={12} md={2}>
             <h5 className="footer__item">Our Sponsor</h5>
-            <div>
+            <div className="footer__item--sponsor">
               <img src={EbvId} alt="" className="footer__item--img" />
               <img src={CineOne21} alt="" className="footer__item--img" />
               <img src={Hiflix} alt="" className="footer__item--img" />
