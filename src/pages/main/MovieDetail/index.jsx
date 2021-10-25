@@ -43,7 +43,7 @@ class MovieDetail extends Component {
         <Navbar />
         <Container>
           <Row className="movieDetail">
-            <Col md={3} sm={12}>
+            <Col md={3} sm={12} className="img">
               <img
                 src={`http://localhost:3001/uploads/movie/${data.image}`}
                 alt=""
@@ -53,7 +53,7 @@ class MovieDetail extends Component {
             <Col md={9} sm={12} className="movieDetail__desc">
               {" "}
               <h1>{data.name}</h1>
-              <h6>{data.category}</h6>
+              <h6 className="movieDetail__desc--category">{data.category}</h6>
               <div className="movieDetail__desc--section">
                 <p>Release date</p>
                 <h6>{new Date(data.releaseDate).toDateString()}</h6>

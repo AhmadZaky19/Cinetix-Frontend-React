@@ -136,3 +136,42 @@
   color: #ffffff !important;
   border-color: #5f2eea !important;
 }
+
+@media (max-width: 480px) {
+  .img {
+    text-align: center;
+    padding-bottom: 2em;
+  }
+
+  .img-thumbnail {
+    padding: 1em !important;
+    width: 50%;
+    justify-content: center !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  .movieDetail__desc h1 {
+    text-align: center;
+  }
+
+  .movieDetail__desc--category {
+    text-align: center;
+  }
+
+  .showtime__filter {
+    padding-top: 1em !important;
+    padding-left: 4.8em !important;
+    /* padding-right: 12em; */
+    display: block;
+  }
+
+  .showtime__filter input {
+    width: 80%;
+    margin-bottom: 1em;
+  }
+
+  .showtime__filter select {
+    width: 80%;
+  }
+}
