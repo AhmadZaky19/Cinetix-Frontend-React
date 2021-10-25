@@ -1,56 +1,82 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import axios from "../../../utils/axios";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 import EbvId from "../../../assets/img/ebuid.png";
 import CineOne21 from "../../../assets/img/cineone.png";
 import Hiflix from "../../../assets/img/hiflix.png";
-import Movie from "../../../assets/img/Lionking.png";
 import "./index.css";
 
 class MovieDetail extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+      movieId: props.match.params.id
+    };
+  }
+
+  componentDidMount() {
+    this.getDataMovieById();
+  }
+
+  getDataMovieById = () => {
+    axios
+      .get(`/movie/${this.state.movieId}`)
+      .then((res) => {
+        this.setState({
+          data: res.data.data[0]
+        });
+      })
+      .catch((err) => {
+        this.setState({
+          msg: err.response.data.msg
+        });
+      });
+  };
+
   render() {
+    const { data } = this.state;
     return (
       <>
         <Navbar />
         <Container>
           <Row className="movieDetail">
             <Col md={3} sm={12}>
-              <img src={Movie} alt="" className="img-thumbnail" />
+              <img
+                src={`http://localhost:3001/uploads/movie/${data.image}`}
+                alt=""
+                className="img-thumbnail"
+              />
             </Col>
             <Col md={9} sm={12} className="movieDetail__desc">
               {" "}
-              <h1>The Lion King</h1>
-              <h6>Adventure, Slice of Life</h6>
+              <h1>{data.name}</h1>
+              <h6>{data.category}</h6>
               <div className="movieDetail__desc--section">
                 <p>Release date</p>
-                <h6>June 28, 2017</h6>
+                <h6>{new Date(data.releaseDate).toDateString()}</h6>
               </div>
               <div className="movieDetail__desc--section">
                 <p>Duration</p>
-                <h6>2 hours 13 minutes</h6>
+                <h6>
+                  {data.durationHour} hours {data.durationMinute} minutes
+                </h6>
               </div>
               <div className="movieDetail__desc--section">
                 <p>Directed by</p>
-                <h6>John Watts</h6>
+                <h6>{data.director}</h6>
               </div>
               <div className="movieDetail__desc--section">
                 <p>Casts</p>
-                <h6>Tom Holland, Michael Keaton, Robert Downey Jr., ...</h6>
+                <h6>{data.casts}</h6>
               </div>
             </Col>
           </Row>
           <Row className="movieSyn">
             <h5>Synopsis</h5>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, consectetur, molestias
-              tempore assumenda nisi maxime magnam architecto sequi, iste reiciendis sit accusantium
-              nemo corporis voluptate ex facere. Odit, quae quis. Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Enim maiores veritatis voluptas natus est aliquid
-              dolores reiciendis ullam labore. Voluptatum dolorum, ex a harum ullam dignissimos
-              ratione saepe corrupti delectus! Lorem ipsum dolor sit, amet consectetur adipisicing
-              elit.
-            </p>
+            <p>{data.synopsis}</p>
           </Row>
           <Row className="showtime">
             <h4>Showtimes and Tickets</h4>
