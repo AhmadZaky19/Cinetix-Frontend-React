@@ -45,7 +45,7 @@ class MovieDetail extends Component {
           <Row className="movieDetail">
             <Col md={3} sm={12} className="img">
               <img
-                src={`http://localhost:3001/uploads/movie/${data.image}`}
+                src={`${process.env.REACT_APP_URL_BACKEND}uploads/movie/${data.image}`}
                 alt=""
                 className="img-thumbnail"
               />

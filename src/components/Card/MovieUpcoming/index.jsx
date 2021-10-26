@@ -13,7 +13,7 @@ class CardMovieUpcoming extends Component {
             className="cardMovie__now--img"
             src={
               image
-                ? `http://localhost:3001/uploads/movie/${image}`
+                ? `${process.env.REACT_APP_URL_BACKEND}uploads/movie/${image}`
                 : "https://www.a1hosting.net/wp-content/themes/arkahost/assets/images/default.jpg"
             }
           />
