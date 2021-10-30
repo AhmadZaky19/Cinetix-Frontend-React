@@ -1,0 +1,128 @@
+.movie__admin--page {
+  background-color: #f5f6f8;
+}
+
+.movie__admin--h2 {
+  padding-left: 0px !important;
+  padding-bottom: 10px;
+  display: flex;
+}
+
+.movie__admin--img {
+  width: 63%;
+  padding: 1em !important;
+  margin-top: 2em;
+  margin-left: 3em;
+}
+
+.movie__admin {
+  padding: 2em 7em;
+}
+
+.movie__admin--form {
+  padding-top: 2em;
+  padding-right: 3em;
+  background-color: #fcfdfe !important;
+}
+
+.movie__duration--time {
+  display: flex;
+}
+
+.movie__duration--hour {
+  margin-right: 1em;
+}
+
+.movie__duration--synopsis {
+  padding: 1em 3em 1em 3em;
+}
+
+.movie__admin--button {
+  display: flex;
+  justify-content: right;
+  padding-right: 3em;
+  padding-bottom: 3em;
+}
+
+.movie__admin__button--reset {
+  margin-right: 2em;
+  width: 12%;
+  background-color: #ffffff !important;
+  color: #5f2eea !important;
+  border-width: 3px !important;
+  border-color: #5f2eea !important;
+  font-weight: 500 !important;
+}
+
+.movie__admin__button--submit {
+  width: 12%;
+  background-color: #5f2eea !important;
+  color: #ffffff !important;
+  border-color: #5f2eea !important;
+  font-weight: 500 !important;
+}
+
+.movie__admin--sort {
+  display: flex;
+  align-items: flex-end !important;
+  margin-left: 40em;
+  padding-bottom: 10px;
+}
+
+.movie__admin__sort--sort {
+  margin-right: 2em;
+  width: 160px;
+  border-radius: 0.8em;
+}
+
+.movie__admin__sort--search {
+  width: 288px;
+  border-radius: 0.8em;
+}
+
+.movie__admin-section {
+  padding-top: 3em;
+}
+
+.cardMovie__admin {
+  width: 13rem !important;
+  align-items: center !important;
+  padding-top: 1.3em;
+  padding-bottom: 1.3em;
+  padding-right: 1.3em;
+  padding-left: 1.3em;
+  margin-left: 87px;
+  margin-bottom: 6em;
+  border-radius: 10px !important;
+  border-color: #dedede !important;
+}
+
+.cardMovie__admin--img {
+  height: 13em;
+  width: 9em !important;
+}
+
+.cardMovie__admin--title {
+  text-align: center;
+}
+
+.cardMovie__admin--genre {
+  text-align: center;
+  color: #a0a3bd;
+  font-size: 12px;
+}
+
+.cardMovie__admin--update {
+  width: 100%;
+  margin-bottom: 1em !important;
+  background-color: #ffffff !important;
+  color: #5f2eea !important;
+  border-color: #5f2eea !important;
+}
+
+.cardMovie__admin--delete {
+  width: 100%;
+  background-color: #ffffff !important;
+  color: #ed2e7e !important;
+  border-color: #ed2e7e !important;
+}

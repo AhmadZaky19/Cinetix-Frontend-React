@@ -5,6 +5,7 @@ import Home from "./pages/main/Home";
 import MovieDetail from "./pages/main/MovieDetail";
 import OrderPage from "./pages/main/Order";
 import PaymentPage from "./pages/main/Payment";
+import ManageMovie from "./pages/admin/ManageMovie";
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           <Route path="/movie-detail/:id" exact component={MovieDetail} />
           <Route path="/order" exact component={OrderPage} />
           <Route path="/payment" exact component={PaymentPage} />
+          <Route path="/manage-movie" exact component={ManageMovie} />
         </Switch>
       </Router>
     );
