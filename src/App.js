@@ -7,7 +7,7 @@ import OrderPage from "./pages/main/Order";
 import PaymentPage from "./pages/main/Payment";
 import ManageMovie from "./pages/admin/ManageMovie";
 import ManageSchedule from "./pages/admin/ManageSchedule";
-// import Dashboard from "./pages/admin/Dashboard";
+import Dashboard from "./pages/admin/Dashboard";
 
 class App extends Component {
   render() {
@@ -21,7 +21,7 @@ class App extends Component {
           <Route path="/payment" exact component={PaymentPage} />
           <Route path="/manage-movie" exact component={ManageMovie} />
           <Route path="/manage-schedule" exact component={ManageSchedule} />
-          {/* <Route path="/dashboard" exact component={Dashboard} /> */}
+          <Route path="/dashboard" exact component={Dashboard} />
         </Switch>
       </Router>
     );

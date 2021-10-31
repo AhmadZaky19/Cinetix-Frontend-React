@@ -1,0 +1,40 @@
+.dashboard__page {
+  background-color: #f5f6f8;
+}
+
+.dashboard {
+  padding: 2em 7em 5em;
+}
+
+.dashboard__section {
+  padding-bottom: 20px;
+}
+
+.filter__dashboard {
+  background-color: #ffffff;
+  padding: 30px 20px 10px;
+}
+
+.filter__dashboard--item {
+  margin-bottom: 20px;
+  background-color: #fcfdfe;
+}
+
+.dashboard__filter {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: #5f2eea !important;
+  color: #ffffff !important;
+  border-color: #5f2eea !important;
+  box-shadow: 0px 8px 24px rgba(95, 46, 234, 0.24);
+}
+
+.dashboard__reset {
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #ffffff !important;
+  color: #5f2eea !important;
+  border-color: #5f2eea !important;
+  box-shadow: 0px 8px 24px rgba(95, 46, 234, 0.24);
+}
