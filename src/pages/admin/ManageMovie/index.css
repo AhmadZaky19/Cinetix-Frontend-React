@@ -66,17 +66,17 @@
   display: flex;
   align-items: flex-end !important;
   margin-left: 40em;
-  padding-bottom: 10px;
+  padding-bottom: 7px !important;
 }
 
 .movie__admin__sort--sort {
   margin-right: 2em;
-  width: 160px;
+  width: 130px !important;
   border-radius: 0.8em;
 }
 
 .movie__admin__sort--search {
-  width: 288px;
+  width: 318px !important;
   border-radius: 0.8em;
 }
 
