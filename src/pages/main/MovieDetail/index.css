@@ -65,6 +65,10 @@
   color: #4e4b66;
 }
 
+.showtime__card {
+  margin-bottom: 25px;
+}
+
 .showtime__schedule {
   border: 10px solid black;
   border-radius: 10px !important;

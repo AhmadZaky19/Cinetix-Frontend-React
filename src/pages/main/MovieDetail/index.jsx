@@ -89,17 +89,10 @@ class MovieDetail extends Component {
                 <option value="2">Semarang</option>
                 <option value="3">Bogor</option>
               </select>
-              {/* <Form.Control type="date" name="duedate" placeholder="Due date" />
-              <Form.Select aria-label="Default select example">
-                <option>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </Form.Select> */}
             </div>
           </Row>
           <Row xs={1} sm={1} md={3}>
-            <Col>
+            <Col className="showtime__card">
               <Card class="showtime__schedule">
                 <Row>
                   <Col>
@@ -145,7 +138,7 @@ class MovieDetail extends Component {
                 </Card.Body>
               </Card>
             </Col>
-            <Col>
+            <Col className="showtime__card">
               <Card class="showtime__schedule">
                 <Row>
                   <Col>
@@ -191,7 +184,7 @@ class MovieDetail extends Component {
                 </Card.Body>
               </Card>
             </Col>
-            <Col>
+            <Col className="showtime__card">
               <Card class="showtime__schedule">
                 <Row>
                   <Col>
