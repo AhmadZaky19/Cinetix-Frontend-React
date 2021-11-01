@@ -1,0 +1,92 @@
+.user__Page {
+  background-color: #f5f6f8;
+}
+
+.user {
+  padding: 2em 7em;
+}
+
+.user__info {
+  background-color: #ffffff;
+}
+
+.user__info--top {
+  display: flex;
+  justify-content: space-between;
+  padding: 2em;
+}
+
+.user__info--image {
+  width: 130px;
+  margin-left: 85px;
+  margin-bottom: 20px;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.user__info--middle {
+  display: inline;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.user__info--bottom {
+  display: flex;
+  padding: 2em;
+  padding-bottom: 5px !important;
+}
+
+.membership {
+  position: relative;
+}
+
+.member__card {
+  position: absolute;
+  padding-right: 2em !important;
+  margin-right: 2em;
+}
+
+.member__star {
+  position: relative;
+  padding-left: 210px;
+  padding-top: 1px;
+}
+
+.user__info--progress {
+  margin-top: 6em;
+  padding-bottom: 4em;
+  padding-left: 2em;
+  padding-right: 2em;
+  text-align: center;
+}
+
+.user__info__progress--bar {
+  background-color: #f5f6f8;
+}
+
+.bg-custom {
+  background-color: #5f2eea !important;
+}
+
+.container .member__Card {
+  position: absolute;
+}
+
+.container .member__Card img {
+  padding-right: 4em !important;
+  padding-left: 0px !important;
+}
+
+.member__card--desc {
+  position: absolute;
+  top: 25px;
+  left: 40px;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.user__data {
+  background-color: #ffffff;
+}

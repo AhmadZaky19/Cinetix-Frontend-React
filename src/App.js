@@ -8,6 +8,7 @@ import PaymentPage from "./pages/main/Payment";
 import ManageMovie from "./pages/admin/ManageMovie";
 import ManageSchedule from "./pages/admin/ManageSchedule";
 import Dashboard from "./pages/admin/Dashboard";
+import Profile from "./pages/profile";
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
           <Route path="/manage-movie" exact component={ManageMovie} />
           <Route path="/manage-schedule" exact component={ManageSchedule} />
           <Route path="/dashboard" exact component={Dashboard} />
+          <Route path="/profile" exact component={Profile} />
         </Switch>
       </Router>
     );
