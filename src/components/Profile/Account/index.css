@@ -1,0 +1,18 @@
+.user__data--account {
+  background-color: #ffffff;
+  padding: 3em 2em;
+}
+
+.user__data--form {
+  padding-top: 2em;
+  background-color: #fcfdfe !important;
+}
+
+.user__data--button {
+  width: 45%;
+  margin-top: 2em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #5f2eea !important;
+  border-color: #5f2eea !important;
+}
