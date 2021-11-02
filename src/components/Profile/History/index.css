@@ -1,0 +1,44 @@
+.user__data--orderHistory {
+  padding: 3em 0em;
+}
+
+.order__history {
+  border: 1px hidden;
+  border-radius: 4px !important;
+  background-color: #ffffff;
+}
+
+.order__history--desc {
+  padding-top: 1.6em;
+  padding-left: 3em;
+}
+
+.order__history--image {
+  width: 150px;
+  padding-top: 2em;
+}
+
+.order__history--ticket {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order__history--button1 {
+  margin-left: 20px !important;
+  margin-bottom: 20px !important;
+  background-color: #00ba88;
+  border-color: #00ba88;
+  width: 25%;
+}
+
+.order__history--button2 {
+  margin-left: 20px !important;
+  margin-bottom: 20px !important;
+  background-color: #6e7191;
+  border-color: #6e7191;
+  width: 25%;
+}
+
+.order__history--details {
+  padding-right: 60px;
+}

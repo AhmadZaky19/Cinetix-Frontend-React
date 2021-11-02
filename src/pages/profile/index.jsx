@@ -3,6 +3,7 @@ import { Container, Row, Col, Image, ProgressBar, Tab, Tabs } from "react-bootst
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Account from "../../components/Profile/Account";
+import History from "../../components/Profile/History";
 import User from "../../assets/img/user_icon.png";
 import Dot from "../../assets/img/dot_3.png";
 import Star from "../../assets/img/star.png";
@@ -57,7 +58,9 @@ const Profile = () => {
               <Tab eventKey="account settings" title="Account Settings" className="user__data--tab">
                 <Account />
               </Tab>
-              <Tab eventKey="order history" title="Order History"></Tab>
+              <Tab eventKey="order history" title="Order History">
+                <History />
+              </Tab>
             </Tabs>
           </Col>
         </Row>
