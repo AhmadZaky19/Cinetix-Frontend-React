@@ -1,12 +1,27 @@
 import React, { Component } from "react";
 import { Search } from "react-bootstrap-icons";
 import { Link, withRouter } from "react-router-dom";
-import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
+import {
+  Navbar,
+  Container,
+  Nav,
+  NavDropdown,
+  Form,
+  FormControl,
+  Button,
+  Image
+} from "react-bootstrap";
 import TickitzPurple from "../../assets/img/tickitz purple.png";
+import user from "../../assets/img/user_icon.png";
 import "./index.css";
 
 class Navigation extends Component {
+  handleLogout = () => {
+    localStorage.clear();
+    this.props.history.push("/home");
+  };
   render() {
+    const token = localStorage.getItem("token");
     return (
       <>
         <Navbar expand="lg">
@@ -30,7 +45,7 @@ class Navigation extends Component {
                 <Nav.Link href="#" className="nav__item">
                   Payment
                 </Nav.Link>
-                <Nav.Link href="#" className="nav__item">
+                <Nav.Link href="/profile" className="nav__item">
                   Profile
                 </Nav.Link>
               </Nav>
@@ -48,8 +63,15 @@ class Navigation extends Component {
                 />
               </Form>
               <Search size={24} />
-              <Button variant="outline-success" className="button__signup">
-                Sign Up
+              {token !== null ? (
+                <Image src={user} className="user__image" roundedCircle />
+              ) : (
+                <Button variant="outline-success" className="button__signup">
+                  Sign Up
+                </Button>
+              )}
+              <Button className="logout__button" onClick={this.handleLogout}>
+                Logout
               </Button>
             </Navbar.Collapse>
           </Container>
@@ -59,4 +81,4 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation;
+export default withRouter(Navigation);

@@ -1,6 +1,6 @@
 .nav__item {
   color: #414141 !important;
-  padding-left: 3em !important;
+  padding-left: 2em !important;
   font-size: 20px;
 }
 
@@ -28,4 +28,10 @@
   margin-left: 3em;
   height: 40px;
   width: 40px;
+}
+
+.logout__button {
+  margin-left: 3em;
+  background-color: #ed2e7e !important;
+  border-color: #ed2e7e !important;
 }

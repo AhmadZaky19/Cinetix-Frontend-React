@@ -16,6 +16,11 @@ import user from "../../assets/img/user_icon.png";
 import "./index.css";
 
 class NavAdmin extends Component {
+  handleLogout = () => {
+    localStorage.clear();
+    this.props.history.push("/home");
+  };
+
   render() {
     return (
       <>
@@ -34,13 +39,13 @@ class NavAdmin extends Component {
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll" className="nav__collapse">
               <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
-                <Nav.Link href="/home" className="nav__item">
+                <Nav.Link href="/dashboard" className="nav__item">
                   Dashboard
                 </Nav.Link>
-                <Nav.Link href="#" className="nav__item">
+                <Nav.Link href="/manage-movie" className="nav__item">
                   Manage Movie
                 </Nav.Link>
-                <Nav.Link href="#" className="nav__item">
+                <Nav.Link href="/manage-schedule" className="nav__item">
                   Manage Schedule
                 </Nav.Link>
               </Nav>
@@ -59,6 +64,9 @@ class NavAdmin extends Component {
               </Form>
               <Search size={24} />
               <Image src={user} className="user__image" roundedCircle />
+              <Button className="logout__button" onClick={this.handleLogout}>
+                Logout
+              </Button>
             </Navbar.Collapse>
           </Container>
         </Navbar>
@@ -67,4 +75,4 @@ class NavAdmin extends Component {
   }
 }
 
-export default NavAdmin;
+export default withRouter(NavAdmin);
