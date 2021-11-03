@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import axios from "../../../utils/axios";
+// import axios from "../../../utils/axios";
+import { connect } from "react-redux";
+import { compose } from "redux";
+import { login } from "../../../stores/actions/auth";
 import styles from "./FormLogin.module.css";
 import TickitzPurple from "../../../assets/img/tickitz purple.png";
 import Google from "../../../assets/img/google.png";
@@ -14,8 +17,7 @@ class FormLogin extends Component {
         email: "",
         password: ""
       },
-      isError: false,
-      msg: ""
+      isError: false
     };
   }
 
@@ -30,21 +32,19 @@ class FormLogin extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    axios
-      .post("auth/login", this.state.form)
+    this.props
+      .login(this.state.form)
       .then((res) => {
-        localStorage.setItem("token", res.data.data.token);
+        localStorage.setItem("token", res.value.data.data.token);
         this.props.history.push("/home");
       })
       .catch((err) => {
         this.setState({
-          isError: true,
-          msg: err.response.data.msg
+          isError: true
         });
         setTimeout(() => {
           this.setState({
-            isError: false,
-            msg: ""
+            isError: false
           });
         }, 3000);
       });
@@ -55,6 +55,7 @@ class FormLogin extends Component {
   };
 
   render() {
+    const { isError, msg } = this.props.auth;
     return (
       <div className={`${styles.form}`}>
         <div className={`${styles.form__input}`}>
@@ -65,7 +66,7 @@ class FormLogin extends Component {
           <p>Sign in with your data that you entered during your registration</p>
         </div>
         <div>
-          {this.state.isError && <div className="alert alert-danger">{this.state.msg}</div>}
+          {this.state.isError && <div className="alert alert-danger">{msg}</div>}
           <form onSubmit={this.handleSubmit} onReset={this.handleReset}>
             <div className={`${styles.field__input} mb-3`}>
               <label htmlFor="email" className="form-label">
@@ -126,4 +127,10 @@ class FormLogin extends Component {
   }
 }
 
-export default withRouter(FormLogin);
+const mapStateToProps = (state) => ({
+  auth: state.auth
+});
+
+const mapDispatchToProps = { login };
+
+export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(FormLogin);

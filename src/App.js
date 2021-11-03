@@ -10,22 +10,30 @@ import ManageSchedule from "./pages/admin/ManageSchedule";
 import Dashboard from "./pages/admin/Dashboard";
 import Profile from "./pages/profile";
 
+import PrivateRoute from "./helpers/routes/PrivateRoute";
+import PublicRoute from "./helpers/routes/PublicRoute";
+
+import { Provider } from "react-redux";
+import store from "./stores/store";
+
 class App extends Component {
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route path="/login" exact component={Login} />
-          <Route path="/home" exact component={Home} />
-          <Route path="/movie-detail/:id" exact component={MovieDetail} />
-          <Route path="/order" exact component={OrderPage} />
-          <Route path="/payment" exact component={PaymentPage} />
-          <Route path="/manage-movie" exact component={ManageMovie} />
-          <Route path="/manage-schedule" exact component={ManageSchedule} />
-          <Route path="/dashboard" exact component={Dashboard} />
-          <Route path="/profile" exact component={Profile} />
-        </Switch>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <Switch>
+            <PublicRoute path="/login" restricted={true} exact component={Login} />
+            <PrivateRoute path="/home" exact component={Home} />
+            <PrivateRoute path="/movie-detail/:id" exact component={MovieDetail} />
+            <PrivateRoute path="/order" exact component={OrderPage} />
+            <PrivateRoute path="/payment" exact component={PaymentPage} />
+            <PrivateRoute path="/manage-movie" exact component={ManageMovie} />
+            <PrivateRoute path="/manage-schedule" exact component={ManageSchedule} />
+            <PrivateRoute path="/dashboard" exact component={Dashboard} />
+            <PrivateRoute path="/profile" exact component={Profile} />
+          </Switch>
+        </Router>
+      </Provider>
     );
   }
 }
