@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { login } from "../../../stores/actions/auth";
+import { getDataUser } from "../../../stores/actions/user";
 import styles from "./FormLogin.module.css";
 import TickitzPurple from "../../../assets/img/tickitz purple.png";
 import Google from "../../../assets/img/google.png";
@@ -36,7 +37,14 @@ class FormLogin extends Component {
       .login(this.state.form)
       .then((res) => {
         localStorage.setItem("token", res.value.data.data.token);
-        this.props.history.push("/home");
+        this.props.getDataUser(res.value.data.data.id).then((res) => {
+          localStorage.setItem("role", res.value.data.data[0].role);
+          if (res.value.data.data[0].role === "admin") {
+            this.props.history.push("/manage-movie");
+          } else {
+            this.props.history.push("/home");
+          }
+        });
       })
       .catch((err) => {
         this.setState({
@@ -131,6 +139,6 @@ const mapStateToProps = (state) => ({
   auth: state.auth
 });
 
-const mapDispatchToProps = { login };
+const mapDispatchToProps = { login, getDataUser };
 
 export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(FormLogin);
