@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { Link } from "react-router-dom";
 import { login } from "../../../stores/actions/auth";
 import { getDataUser } from "../../../stores/actions/user";
 import styles from "./FormRegister.module.css";

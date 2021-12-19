@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-// import axios from "../../../utils/axios";
+import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { login } from "../../../stores/actions/auth";
@@ -107,7 +106,12 @@ class FormLogin extends Component {
           </form>
           <div className={`${styles.reset}`}>
             <p>
-              Forgot your password? <a href="">Reset now</a>
+              Not have an account? <Link to="/register">Register</Link>
+            </p>
+          </div>
+          <div className={`${styles.reset}`}>
+            <p>
+              Forgot your password? <Link to="/reset-password">Reset now</Link>
             </p>
           </div>
         </div>
