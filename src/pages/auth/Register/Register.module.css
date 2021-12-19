@@ -62,6 +62,7 @@
 .steper__list::before {
   counter-increment: step 1;
   content: counter(step);
+  color: #ffffff;
 
   margin-right: 10px;
   border: 2px solid #ffffff;
