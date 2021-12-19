@@ -1,0 +1,128 @@
+.mobile__only {
+  display: none;
+}
+
+.form {
+  margin: 8em;
+}
+
+.form__input p {
+  font-size: 1.45em;
+  color: #aaaaaa;
+}
+
+.form__input h1 {
+  font-size: 2em;
+}
+
+.field__input {
+  margin-top: 2em;
+  padding: 4em auto !important;
+  border: 2em auto !important;
+}
+
+.formIn {
+  border-radius: 0.5em !important;
+  padding: 0.75em 1.5em !important;
+  background-color: #fcfdfe !important;
+}
+
+.SignIn {
+  background-color: #5f2eea !important;
+  width: 100%;
+  margin-top: 2em;
+  border-radius: 0.5em !important;
+  padding: 0.75em 1.5em !important;
+  margin-bottom: 2em;
+}
+
+.reset p {
+  text-align: center;
+  font-weight: 500;
+  color: #8692a6;
+  margin-bottom: 3em;
+}
+.reset a {
+  color: #5f2eea;
+}
+
+.section_or {
+  text-align: center;
+}
+
+.section_or h2 {
+  width: 20%;
+  font-size: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 4px;
+  margin: 0;
+  color: #dedede;
+}
+
+.section_or_line {
+  border-top: 2px solid #dedede;
+  width: 38%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.link_button {
+  margin-top: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between !important;
+  font-size: 1.3em;
+  padding-left: 0;
+}
+
+.link_button button {
+  padding: 0.75em 1.75em 0.275em !important;
+  display: inline-flex;
+  padding-left: 0;
+  border-color: white !important;
+  box-shadow: 1px 1px 2px 2px #dedede;
+  border-radius: 1em !important;
+  background-color: white;
+  color: #a0a3bd;
+}
+
+button i img {
+  padding-bottom: 0.175em;
+  padding-right: 0.7em;
+  height: 1.3em;
+}
+
+@media (max-width: 480px) {
+  .mobile__only {
+    display: flex;
+  }
+
+  .mobile__only img {
+    width: 6em;
+  }
+
+  .form {
+    margin: 3em;
+  }
+
+  .form__input h1 {
+    font-size: 2em !important;
+    padding-top: 1em;
+  }
+
+  .form__input p {
+    display: none;
+  }
+
+  .link_button button p {
+    display: none;
+  }
+
+  .link_button button {
+    padding: 0.5em 0.5em 0.5em 1.1em !important;
+    margin: 1px;
+    border-radius: 0.8em !important;
+  }
+}

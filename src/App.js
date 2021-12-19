@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
 import Home from "./pages/main/Home";
 import MovieDetail from "./pages/main/MovieDetail";
 import OrderPage from "./pages/main/Order";
@@ -23,6 +24,7 @@ class App extends Component {
         <Router>
           <Switch>
             <PublicRoute path="/login" restricted={true} exact component={Login} />
+            <PublicRoute path="/register" restricted={true} exact component={Register} />
             <PrivateRoute path="/home" exact component={Home} />
             <PrivateRoute path="/movie-detail/:id" exact component={MovieDetail} />
             <PrivateRoute path="/order" exact component={OrderPage} />
