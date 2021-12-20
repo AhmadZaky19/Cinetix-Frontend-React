@@ -17,33 +17,41 @@ import PrivateRoute from "./helpers/routes/PrivateRoute";
 import PublicRoute from "./helpers/routes/PublicRoute";
 
 import { Provider } from "react-redux";
-import store from "./stores/store";
+import { store, persistor } from "./stores/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
-          <Switch>
-            <PublicRoute path="/login" restricted={true} exact component={Login} />
-            <PublicRoute path="/register" restricted={true} exact component={Register} />
-            <PublicRoute path="/reset-password" restricted={true} exact component={ResetPassword} />
-            <PublicRoute
-              path="/confirm-password"
-              restricted={true}
-              exact
-              component={ConfirmPassword}
-            />
-            <PrivateRoute path="/home" exact component={Home} />
-            <PrivateRoute path="/movie-detail/:id" exact component={MovieDetail} />
-            <PrivateRoute path="/order" exact component={OrderPage} />
-            <PrivateRoute path="/payment" exact component={PaymentPage} />
-            <PrivateRoute path="/manage-movie" exact component={ManageMovie} />
-            <PrivateRoute path="/manage-schedule" exact component={ManageSchedule} />
-            <PrivateRoute path="/dashboard" exact component={Dashboard} />
-            <PrivateRoute path="/profile" exact component={Profile} />
-          </Switch>
-        </Router>
+        <PersistGate loading={null} persistor={persistor}>
+          <Router>
+            <Switch>
+              <PublicRoute path="/login" restricted={true} exact component={Login} />
+              <PublicRoute path="/register" restricted={true} exact component={Register} />
+              <PublicRoute
+                path="/reset-password"
+                restricted={true}
+                exact
+                component={ResetPassword}
+              />
+              <PublicRoute
+                path="/confirm-password"
+                restricted={true}
+                exact
+                component={ConfirmPassword}
+              />
+              <PrivateRoute path="/home" exact component={Home} />
+              <PrivateRoute path="/movie-detail/:id" exact component={MovieDetail} />
+              <PrivateRoute path="/order" exact component={OrderPage} />
+              <PrivateRoute path="/payment" exact component={PaymentPage} />
+              <PrivateRoute path="/manage-movie" exact component={ManageMovie} />
+              <PrivateRoute path="/manage-schedule" exact component={ManageSchedule} />
+              <PrivateRoute path="/dashboard" exact component={Dashboard} />
+              <PrivateRoute path="/profile" exact component={Profile} />
+            </Switch>
+          </Router>
+        </PersistGate>
       </Provider>
     );
   }
