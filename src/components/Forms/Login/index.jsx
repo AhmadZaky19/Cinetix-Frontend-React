@@ -24,32 +24,6 @@ const FormLogin = (props) => {
     setFormLogin({ ...formLogin, [event.target.name]: event.target.value });
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   this.props
-  //     .login(this.state.form)
-  //     .then((res) => {
-  //       localStorage.setItem("token", res.value.data.data.token);
-  //       this.props.getDataUser(res.value.data.data.id).then((res) => {
-  //         localStorage.setItem("role", res.value.data.data[0].role);
-  //         if (res.value.data.data[0].role === "admin") {
-  //           this.props.history.push("/manage-movie");
-  //         } else {
-  //           this.props.history.push("/home");
-  //         }
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       this.setState({
-  //         isError: true
-  //       });
-  //       setTimeout(() => {
-  //         this.setState({
-  //           isError: false
-  //         });
-  //       }, 3000);
-  //     });
-  // };
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
