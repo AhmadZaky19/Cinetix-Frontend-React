@@ -47,7 +47,7 @@
   cursor: pointer;
 }
 
-.col-md-2 .card__movie img {
+.card__movie img {
   width: 100% !important;
 }
 
@@ -68,8 +68,10 @@
 }
 
 .movie__upcoming--month {
-  margin-left: 5rem;
+  /* margin-left: 5rem; */
   margin-bottom: 7rem;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 .movie__upcoming--month-button {
@@ -83,7 +85,11 @@
   box-sizing: content-box !important;
 }
 
-.movie__upcoming--month-button:focus {
+/* .movie__upcoming--month-button:focus {
+  background-color: #5f2eea !important;
+  color: #ffffff !important;
+} */
+#active {
   background-color: #5f2eea !important;
   color: #ffffff !important;
 }
