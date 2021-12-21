@@ -96,3 +96,11 @@
   color: #ffffff !important;
   border-color: #5f2eea !important;
 }
+
+.coming-soon {
+  color: #5f2eea;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 100px;
+}

@@ -50,8 +50,8 @@ const CardMovieNow = (props) => {
           </Card>
         ))
       ) : (
-        <div className="coming-soon text-center">
-          <h1>Coming Soon</h1>
+        <div className="coming-soon">
+          <h1>No Now Showing Movie</h1>
         </div>
       )}
     </>
