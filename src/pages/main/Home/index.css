@@ -25,7 +25,6 @@
 
 .movie__now {
   background-color: #f5f6f8;
-  /* padding-bottom: -20px; */
 }
 
 .movie__now--title {
@@ -51,51 +50,12 @@
   width: 100% !important;
 }
 
-.movie__upcoming--title {
-  margin: 40px 80px 80px auto !important;
-  margin-bottom: 30px !important;
-  padding-right: 100px !important;
-  padding-left: 100px !important;
-  display: flex;
-  justify-content: space-between;
-  vertical-align: middle;
-  color: #5f2eea;
-}
-
-.movie__upcoming--title h4 {
-  color: black;
-  padding-bottom: 10px;
-}
-
-.movie__upcoming--month {
-  /* margin-left: 5rem; */
-  margin-bottom: 7rem;
-  white-space: nowrap;
-  overflow-x: auto;
-}
-
-.movie__upcoming--month-button {
-  width: 5%;
-  margin-right: 2rem;
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-  background-color: #ffffff !important;
-  color: #5f2eea !important;
-  border-color: #5f2eea !important;
-  box-sizing: content-box !important;
-}
-
-/* .movie__upcoming--month-button:focus {
-  background-color: #5f2eea !important;
-  color: #ffffff !important;
-} */
 #active {
   background-color: #5f2eea !important;
   color: #ffffff !important;
 }
 
 .moviegoers {
-  /* border: 2px solid #a0a3bd; */
   border-radius: 15px;
   box-shadow: 1px 1px 5px 10px #f5f6f8;
   margin: auto;

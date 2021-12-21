@@ -37,23 +37,11 @@ const HomePage = () => {
             <h4>Upcoming Movies</h4>
             <h6>view all</h6>
           </div>
-          <div className="movie__upcoming--month">
-            <Button className="movie__upcoming--month-button" id="active">
-              January
-            </Button>
-            <Button className="movie__upcoming--month-button">February</Button>
-            <Button className="movie__upcoming--month-button">March</Button>
-            <Button className="movie__upcoming--month-button">April</Button>
-            <Button className="movie__upcoming--month-button">May</Button>
-            <Button className="movie__upcoming--month-button">June</Button>
-            <Button className="movie__upcoming--month-button">July</Button>
-            <Button className="movie__upcoming--month-button">August</Button>
-            <Button className="movie__upcoming--month-button">September</Button>
-            <Button className="movie__upcoming--month-button">October</Button>
-            <Button className="movie__upcoming--month-button">November</Button>
-            <Button className="movie__upcoming--month-button">December</Button>
+          <div className="row">
+            <div className="card__movie">
+              <CardMovieUpcoming />
+            </div>
           </div>
-          <div className="col-md-2 card__movie">{/* <CardMovieUpcoming /> */}</div>
         </Row>
         <Row>
           <div className="moviegoers">
