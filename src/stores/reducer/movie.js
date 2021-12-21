@@ -36,6 +36,32 @@ const movie = (state = initialState, action) => {
         pageInfo: {}
       };
     }
+    case "GET_DATA_MOVIE_BY_ID_PENDING": {
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+        msg: ""
+      };
+    }
+    case "GET_DATA_MOVIE_BY_ID_FULFILLED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        msg: action.payload.data.msg,
+        data: action.payload.data.data
+      };
+    }
+    case "GET_DATA_MOVIE_BY_ID_REJECTED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        msg: action.payload.response.data.msg,
+        data: []
+      };
+    }
     default: {
       return {
         ...state

@@ -8,3 +8,9 @@ export const getDataMovie = (month, search, sort, order, page, limit) => {
     )
   };
 };
+export const getDataMovieById = (movieId) => {
+  return {
+    type: "GET_DATA_MOVIE_BY_ID",
+    payload: axios.get(`movie/${movieId}`)
+  };
+};

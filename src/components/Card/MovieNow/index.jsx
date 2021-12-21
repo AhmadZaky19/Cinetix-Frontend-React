@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 import { getDataMovie } from "../../../stores/actions/movie";
 import { connect } from "react-redux";
 import "../index.css";
 
 const CardMovieNow = (props) => {
+  const history = useHistory();
   const [data, setData] = useState([]);
 
   const [month, setMonth] = useState(new Date().toISOString().split("T")[0].split("-")[1]);
@@ -18,6 +20,10 @@ const CardMovieNow = (props) => {
   useEffect(() => {
     getShowingMovie();
   }, []);
+
+  const handleDetail = (id) => {
+    history.push(`/movie-detail/${id}`);
+  };
 
   return (
     <>
@@ -39,7 +45,7 @@ const CardMovieNow = (props) => {
               <Button
                 variant="primary"
                 className="cardMovie__now--detail"
-                onClick={() => this.props.handleDetail(id)}
+                onClick={() => handleDetail(item.id)}
               >
                 Details
               </Button>
