@@ -70,8 +70,10 @@
 }
 
 .showtime__schedule {
-  border: 10px solid black;
-  border-radius: 10px !important;
+  border: 0.5px solid #dedede;
+  border-radius: 8px !important;
+  box-sizing: border-box;
+  box-shadow: 0px 8px 16px rgba(186, 186, 186, 0.24);
 }
 
 .showtime__schedule--image {
@@ -113,11 +115,18 @@
 }
 
 .showtime__schedule--book {
-  width: 100%;
+  width: 100% !important;
   background-color: #5f2eea !important;
+  margin-bottom: 20px;
 }
 
-.page {
+.noSchedule {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+/* .page {
   padding-top: 3em;
   padding-left: 12em;
   padding-right: 12em;
@@ -139,7 +148,7 @@
   background-color: #5f2eea !important;
   color: #ffffff !important;
   border-color: #5f2eea !important;
-}
+} */
 
 @media (max-width: 480px) {
   .img {
