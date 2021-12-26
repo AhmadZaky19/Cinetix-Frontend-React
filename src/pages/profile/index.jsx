@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Image, ProgressBar, Tab, Tabs } from "react-bootstrap";
+import { connect } from "react-redux";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Account from "../../components/Profile/Account";
@@ -10,7 +11,10 @@ import Star from "../../assets/img/star.png";
 import LoyalCard from "../../assets/img/loyalty card.png";
 import "./index.css";
 
-const Profile = () => {
+const Profile = (props) => {
+  useEffect(() => {
+    document.title = "Profile";
+  }, []);
   return (
     <>
       <Navbar />
@@ -24,21 +28,23 @@ const Profile = () => {
               </div>
               <div className="user__info--middle">
                 <Image src={User} className="user__info--image" roundedCircle />
-                <h5>Ahmad Zaky</h5>
+                <h5>{`${props.user.dataUser.firstName} ${props.user.dataUser.lastName}`}</h5>
                 <p>Moviegoers</p>
               </div>
               <hr />
               <div className="user__info--bottom">
                 <h6>Loyalty Points</h6>
               </div>
-              <div className="container member__card" style={{ paddingLeft: "0px" }}>
-                <img src={LoyalCard} alt="" />
-                <div className="member__card--desc">
-                  {" "}
-                  <h5>Moviegoers</h5>
-                  <div style={{ display: "flex", paddingTop: "30px" }}>
-                    <h5>320</h5>
-                    <p>points</p>
+              <div className="member__card">
+                <div className="container" style={{ paddingLeft: "0px" }}>
+                  <img src={LoyalCard} alt="" />
+                  <div className="member__card--desc">
+                    {" "}
+                    <h5>Moviegoers</h5>
+                    <div style={{ display: "flex", paddingTop: "30px" }}>
+                      <h5>320</h5>
+                      <p>points</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -71,4 +77,10 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+const mapStateToProps = (state) => ({
+  user: state.user
+});
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
