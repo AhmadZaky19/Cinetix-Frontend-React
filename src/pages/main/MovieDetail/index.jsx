@@ -40,7 +40,8 @@ const MovieDetail = (props) => {
     time: "",
     id_schedule: "",
     premiere: "",
-    location: ""
+    location: "",
+    price: ""
   });
   const [date, setDate] = useState(dateNow);
 
@@ -84,14 +85,15 @@ const MovieDetail = (props) => {
 
   const handleToOrder = () => {
     const { movieId } = filter;
-    const { time, id_schedule, premiere, location } = selectedTime;
+    const { time, id_schedule, premiere, location, price } = selectedTime;
     history.push("/order", {
       time,
       id_schedule,
       premiere,
       movieId,
       date,
-      location
+      location,
+      price
     });
   };
 
@@ -199,7 +201,8 @@ const MovieDetail = (props) => {
                             time: time,
                             id_schedule: item.id,
                             premiere: item.premiere,
-                            location: item.location
+                            location: item.location,
+                            price: item.price
                           });
                         }}
                       >
