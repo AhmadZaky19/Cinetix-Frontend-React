@@ -24,6 +24,7 @@ class OrderPage extends Component {
       dataMovie: {}
     };
   }
+
   selectSeat = (data) => {
     if (this.state.selectedSeat.includes(data)) {
       const deleteSeat = this.state.selectedSeat.filter((el) => {
@@ -38,16 +39,16 @@ class OrderPage extends Component {
       });
     }
   };
+
   getMovieById = async () => {
     try {
       const result = await axios.get(`movie/${this.state.data.movieId}`);
       this.setState({
         dataMovie: result.data.data[0]
       });
-    } catch (error) {
-      console.log(error.response);
-    }
+    } catch (error) {}
   };
+
   componentDidMount() {
     this.getMovieById();
     document.title = "Order";
@@ -59,6 +60,19 @@ class OrderPage extends Component {
     const totalAmount = totalTicket * this.state.data.price;
 
     let seatChoosed = this.state.selectedSeat.join(", ");
+
+    const handleToPayment = () => {
+      const sendData = {
+        id_schedule: this.state.data.id_schedule,
+        time: this.state.data.time,
+        date: this.state.data.date,
+        name: this.state.dataMovie,
+        premiere: this.state.data.premiere,
+        seat: this.state.selectedSeat,
+        totalAmount
+      };
+      this.props.history.push("/payment", sendData);
+    };
     return (
       <>
         <Navbar />
@@ -156,7 +170,9 @@ class OrderPage extends Component {
                     Change your movie
                   </Link>
                 </Button>
-                <Button className="seat__booking--book">Checkout now</Button>
+                <Button className="seat__booking--book" onClick={handleToPayment}>
+                  Checkout now
+                </Button>
               </div>
             </Col>
             <Col xs={12} sm={12} md={4} className="order__info">
@@ -209,7 +225,9 @@ class OrderPage extends Component {
                 </Card.Body>
               </Card>
               <div>
-                <Button className="seat__booking--bookMobile">Checkout now</Button>
+                <Button className="seat__booking--bookMobile" onClick={handleToPayment}>
+                  Checkout now
+                </Button>
               </div>
             </Col>
           </Row>
