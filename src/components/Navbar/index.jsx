@@ -2,22 +2,17 @@ import React, { Component } from "react";
 import { Search } from "react-bootstrap-icons";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import {
-  Navbar,
-  Container,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-  Image
-} from "react-bootstrap";
+import { Navbar, Container, Nav, Form, FormControl, Button, Image } from "react-bootstrap";
 import { getDataUser } from "../../stores/actions/user";
 import TickitzPurple from "../../assets/img/tickitz purple.png";
 import user from "../../assets/img/user_icon.png";
 import "./index.css";
 
 class Navigation extends Component {
+  handleToRegister = () => {
+    this.props.history.push("/register");
+  };
+
   handleLogout = () => {
     localStorage.clear();
     this.props.history.push("/home");
@@ -71,13 +66,19 @@ class Navigation extends Component {
                   roundedCircle
                 />
               ) : (
-                <Button variant="outline-success" className="button__signup">
+                <Button
+                  variant="outline-success"
+                  className="button__signup"
+                  onClick={this.handleToRegister}
+                >
                   Sign Up
                 </Button>
               )}
-              <Button className="logout__button" onClick={this.handleLogout}>
-                Logout
-              </Button>
+              {token !== null ? (
+                <Button className="logout__button" onClick={this.handleLogout}>
+                  Logout
+                </Button>
+              ) : null}
             </Navbar.Collapse>
           </Container>
         </Navbar>
@@ -94,4 +95,4 @@ const mapDispatchToProps = {
   getDataUser
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Navigation));

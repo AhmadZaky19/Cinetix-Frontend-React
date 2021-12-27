@@ -35,7 +35,7 @@ const Profile = (props) => {
     props
       .updateUserImage(formData)
       .then((res) => {
-        // toast.success(`${res.value.data.msg}`);
+        toast.success(`${res.value.data.msg}`);
         props.getDataUser(props.user.dataUser.id);
       })
       .catch((err) => {
