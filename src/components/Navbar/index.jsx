@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Search } from "react-bootstrap-icons";
 import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 import {
   Navbar,
   Container,
@@ -11,6 +12,7 @@ import {
   Button,
   Image
 } from "react-bootstrap";
+import { getDataUser } from "../../stores/actions/user";
 import TickitzPurple from "../../assets/img/tickitz purple.png";
 import user from "../../assets/img/user_icon.png";
 import "./index.css";
@@ -49,11 +51,6 @@ class Navigation extends Component {
                   Profile
                 </Nav.Link>
               </Nav>
-              <NavDropdown title="Location" id="navbarScrollingDropdown" className="nav__dropdown">
-                <NavDropdown.Item href="#">Jakarta</NavDropdown.Item>
-                <NavDropdown.Item href="#">Bandung</NavDropdown.Item>
-                <NavDropdown.Item href="#">Semarang</NavDropdown.Item>
-              </NavDropdown>
               <Form className="d-flex">
                 <FormControl
                   type="search"
@@ -64,7 +61,15 @@ class Navigation extends Component {
               </Form>
               <Search size={24} />
               {token !== null ? (
-                <Image src={user} className="user__image" roundedCircle />
+                <Image
+                  src={
+                    this.props.user.dataUser.image
+                      ? `${process.env.REACT_APP_URL_BACKEND}/uploads/user/${this.props.user.dataUser.image}`
+                      : user
+                  }
+                  className="user__image"
+                  roundedCircle
+                />
               ) : (
                 <Button variant="outline-success" className="button__signup">
                   Sign Up
@@ -81,4 +86,12 @@ class Navigation extends Component {
   }
 }
 
-export default withRouter(Navigation);
+const mapStateToProps = (state) => ({
+  user: state.user
+});
+
+const mapDispatchToProps = {
+  getDataUser
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

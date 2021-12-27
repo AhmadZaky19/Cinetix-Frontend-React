@@ -28,6 +28,7 @@
   margin-left: 3em;
   height: 40px;
   width: 40px;
+  object-fit: cover;
 }
 
 .logout__button {

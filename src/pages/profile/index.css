@@ -17,12 +17,14 @@
 }
 
 .user__info--image {
+  height: 130px;
   width: 130px;
   margin-left: 85px;
   margin-bottom: 20px;
   justify-content: center !important;
   align-items: center !important;
   text-align: center !important;
+  object-fit: cover;
 }
 
 .user__info--middle {
@@ -87,4 +89,26 @@
 
 .user__data {
   background-color: #ffffff;
+}
+
+.to__image__menu:hover {
+  cursor: pointer;
+}
+
+.image__menu {
+  background-color: #5f2eea;
+  text-align: center;
+  margin-left: 140px;
+  margin-top: 30px;
+}
+
+ul {
+  list-style-type: none;
+  color: #ffffff;
+  padding-top: 10px;
+  padding-right: 30px;
+}
+
+.image__menu--item:hover {
+  cursor: pointer;
 }
