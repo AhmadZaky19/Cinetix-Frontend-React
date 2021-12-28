@@ -10,7 +10,7 @@ const CardMovieUpcoming = (props) => {
 
   const getUpcomingMovie = () => {
     props
-      .getDataMovie(month, "", "", "", "", "")
+      .getDataMovie(month, "", "", "", "", 5)
       .then((res) => {
         setData(res.value.data.data);
       })
