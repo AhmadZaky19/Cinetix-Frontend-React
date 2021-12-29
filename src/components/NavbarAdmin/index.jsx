@@ -1,18 +1,7 @@
 import React, { Component } from "react";
-import { Search } from "react-bootstrap-icons";
 import { Link, withRouter } from "react-router-dom";
-import {
-  Navbar,
-  Container,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-  Image
-} from "react-bootstrap";
+import { Navbar, Container, Nav, Button, Image } from "react-bootstrap";
 import TickitzPurple from "../../assets/img/tickitz purple.png";
-import user from "../../assets/img/user_icon.png";
 import "./index.css";
 
 class NavAdmin extends Component {
@@ -49,21 +38,6 @@ class NavAdmin extends Component {
                   Manage Schedule
                 </Nav.Link>
               </Nav>
-              <NavDropdown title="Location" id="navbarScrollingDropdown" className="nav__dropdown">
-                <NavDropdown.Item href="#">Jakarta</NavDropdown.Item>
-                <NavDropdown.Item href="#">Bandung</NavDropdown.Item>
-                <NavDropdown.Item href="#">Semarang</NavDropdown.Item>
-              </NavDropdown>
-              <Form className="d-flex">
-                <FormControl
-                  type="search"
-                  placeholder="Search"
-                  className="me-2 search__form"
-                  aria-label="Search"
-                />
-              </Form>
-              <Search size={24} />
-              <Image src={user} className="user__image" roundedCircle />
               <Button className="logout__button" onClick={this.handleLogout}>
                 Logout
               </Button>
