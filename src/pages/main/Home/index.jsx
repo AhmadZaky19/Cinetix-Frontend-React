@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import Navbar from "../../../components/Navbar";
 import CardMovieNow from "../../../components/Card/MovieNow";
@@ -8,6 +8,9 @@ import GroupMovie from "../../../assets/img/group movie.png";
 import "./index.css";
 
 const HomePage = () => {
+  useEffect(() => {
+    document.title = "Home";
+  }, []);
   return (
     <>
       <Navbar />
