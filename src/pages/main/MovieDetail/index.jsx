@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import Pagination from "react-paginate";
 import { useHistory } from "react-router-dom";
 import { getDataMovieById } from "../../../stores/actions/movie";
-// import { schedule } from "../../../stores/actions/schedule";
+import { getScheduleById } from "../../../stores/actions/schedule";
 import axios from "../../../utils/axios";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
@@ -48,13 +48,11 @@ const MovieDetail = (props) => {
   const { movieId, city } = filter;
 
   const getSchedule = () => {
-    axios
-      .get(
-        `schedule/?location=${city}&movieId=${movieId}&order=DESC&page=${page}&limit=${paginate.limit}`
-      )
+    props
+      .getScheduleById(city, movieId, "DESC", page, paginate.limit)
       .then((res) => {
-        setSchedules(res.data.data);
-        setPaginate({ ...paginate, totalPage: res.data.pagination.totalPage });
+        setSchedules(res.value.data.data);
+        setPaginate({ ...paginate, totalPage: res.value.data.pagination.totalPage });
       })
       .catch((err) => {
         setSchedules([]);
@@ -75,8 +73,9 @@ const MovieDetail = (props) => {
   const handlePagination = (event) => {
     const selectedPage = event.selected + 1;
     setFilter({ ...filter, page: selectedPage });
-    setPage(selectedPage);
-    getSchedule();
+    setPage(selectedPage, () => {
+      getSchedule();
+    });
   };
 
   const handleDate = (e) => {
@@ -183,9 +182,11 @@ const MovieDetail = (props) => {
                         className="showtime__schedule--image"
                       />
                     </Col>
-                    <Col className="showtime__schedule--location">
-                      <h4>{item.premiere}</h4>
-                      <p>{item.location}</p>
+                    <Col>
+                      <div className="showtime__schedule--location">
+                        <h4>{item.premiere}</h4>
+                        <p>{item.location}</p>
+                      </div>
                     </Col>
                   </Row>
                   <hr />
@@ -235,23 +236,21 @@ const MovieDetail = (props) => {
           )}
         </Row>
         <Row>
-          <Col className="page">
-            <div className="pagination-nav mt-5 d-flex justify-content-center">
-              {" "}
-              <Pagination
-                previousLabel={null}
-                nextLabel={null}
-                breakLabel={"..."}
-                pageCount={paginate.totalPage}
-                onPageChange={handlePagination}
-                containerClassName={"pagination"}
-                pageClassName={"page-item"}
-                pageLinkClassName={"page-link"}
-                disabledClassName={"disabled"}
-                activeClassName={"active"}
-              />
-            </div>
-          </Col>
+          <div className="mt-5 d-flex justify-content-center">
+            {" "}
+            <Pagination
+              previousLabel={null}
+              nextLabel={null}
+              breakLabel={"..."}
+              pageCount={paginate.totalPage}
+              onPageChange={handlePagination}
+              containerClassName={"pagination"}
+              pageClassName={"page-item"}
+              pageLinkClassName={"page-link"}
+              disabledClassName={"disabled"}
+              activeClassName={"active"}
+            />
+          </div>
         </Row>
       </Container>
       <Footer />
@@ -265,8 +264,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getDataMovieById
-  // schedule
+  getDataMovieById,
+  getScheduleById
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetail);
