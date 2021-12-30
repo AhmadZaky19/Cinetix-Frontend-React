@@ -1,12 +1,13 @@
 const initialState = {
   isError: false,
   isLoading: false,
-  msg: ""
+  msg: "",
+  data: []
 };
 
 const booking = (state = initialState, action) => {
   switch (action.type) {
-    case "BOOKING_PENDING": {
+    case "POST_BOOKING_PENDING": {
       return {
         ...state,
         isLoading: true,
@@ -14,7 +15,7 @@ const booking = (state = initialState, action) => {
         msg: ""
       };
     }
-    case "BOOKING_FULFILLED": {
+    case "POST_BOOKING_FULFILLED": {
       return {
         ...state,
         isLoading: false,
@@ -22,7 +23,32 @@ const booking = (state = initialState, action) => {
         msg: action.payload.data.msg
       };
     }
-    case "BOOKING_REJECTED": {
+    case "POST_BOOKING_REJECTED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        msg: action.payload.response.data.msg
+      };
+    }
+    case "GET_BOOKING_BY_USER_ID_PENDING": {
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+        msg: ""
+      };
+    }
+    case "GET_BOOKING_BY_USER_ID_FULFILLED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        data: action.payload.data.data,
+        msg: action.payload.data.msg
+      };
+    }
+    case "GET_BOOKING_BY_USER_ID_REJECTED": {
       return {
         ...state,
         isLoading: false,
