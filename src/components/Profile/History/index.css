@@ -10,12 +10,12 @@
 
 .order__history--desc {
   padding-top: 1.6em;
-  padding-left: 3em;
 }
 
 .order__history--image {
-  width: 150px;
-  padding-top: 2em;
+  width: 130px;
+  margin-top: 40px;
+  margin-left: 40px;
 }
 
 .order__history--ticket {
@@ -26,16 +26,16 @@
 .order__history--button1 {
   margin-left: 20px !important;
   margin-bottom: 20px !important;
-  background-color: #00ba88;
-  border-color: #00ba88;
+  background-color: #00ba88 !important;
+  border-color: #00ba88 !important;
   width: 25%;
 }
 
 .order__history--button2 {
   margin-left: 20px !important;
   margin-bottom: 20px !important;
-  background-color: #6e7191;
-  border-color: #6e7191;
+  background-color: #6e7191 !important;
+  border-color: #6e7191 !important;
   width: 25%;
 }
 
