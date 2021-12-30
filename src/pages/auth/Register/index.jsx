@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Register.module.css";
 import TickitzWhite from "../../../assets/img/tickitz white.png";
 import Image from "../../../assets/img/image 1.png";
 import FormRegister from "../../../components/Forms/Register";
 
 const Register = () => {
+  useEffect(() => {
+    document.title = "Register";
+  }, []);
   return (
     <div className={`${styles.contain} container-fluid`}>
       <div className="row">

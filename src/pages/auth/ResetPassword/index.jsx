@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./ResetPass.module.css";
 import TickitzWhite from "../../../assets/img/tickitz white.png";
 import Image from "../../../assets/img/image 1.png";
 import FormResetPassword from "../../../components/Forms/ResetPassword";
 
 const ForgotPassword = () => {
+  useEffect(() => {
+    document.title = "Reset Password";
+  }, []);
   return (
     <div className={`${styles.contain} container-fluid`}>
       <div className="row">
