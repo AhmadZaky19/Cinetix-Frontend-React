@@ -1,0 +1,63 @@
+.movie__admin {
+  padding: 2em 7em;
+}
+
+.movie__admin--h2 {
+  padding-left: 0px !important;
+  padding-bottom: 10px;
+  display: flex;
+}
+
+.movie__admin--img {
+  width: 63%;
+  padding: 1em !important;
+  margin-top: 2em;
+  margin-left: 3em;
+}
+
+.movie__admin--form {
+  padding-top: 2em;
+  padding-right: 3em;
+  background-color: #fcfdfe !important;
+}
+
+.form__left {
+  margin-right: 30px;
+}
+
+.movie__duration--time {
+  display: flex;
+}
+
+.movie__duration--hour {
+  margin-right: 1em;
+}
+
+.movie__duration--synopsis {
+  padding: 1em 3em 1em 3em;
+}
+
+.movie__admin--button {
+  display: flex;
+  justify-content: right;
+  padding-right: 3em;
+  padding-bottom: 3em;
+}
+
+.movie__admin__button--reset {
+  margin-right: 2em;
+  width: 12%;
+  background-color: #ffffff !important;
+  color: #5f2eea !important;
+  border-width: 3px !important;
+  border-color: #5f2eea !important;
+  font-weight: 500 !important;
+}
+
+.movie__admin__button--submit {
+  width: 12%;
+  background-color: #5f2eea !important;
+  color: #ffffff !important;
+  border-color: #5f2eea !important;
+  font-weight: 500 !important;
+}
