@@ -36,7 +36,7 @@ const FormLogin = (props) => {
         let role = res.value.data.data[0].role;
         if (role === "admin") {
           setTimeout(() => {
-            history.push("/manage-movie");
+            history.push("/dashboard");
           }, 2000);
         } else {
           setTimeout(() => {
