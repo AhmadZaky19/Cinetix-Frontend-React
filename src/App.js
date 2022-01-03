@@ -16,6 +16,7 @@ import Profile from "./pages/profile";
 
 import PrivateRoute from "./helpers/routes/PrivateRoute";
 import PublicRoute from "./helpers/routes/PublicRoute";
+import AdminRoute from "./helpers/routes/AdminRoute";
 
 import { Provider } from "react-redux";
 import { store, persistor } from "./stores/store";
@@ -47,9 +48,9 @@ class App extends Component {
               <PrivateRoute path="/order" exact component={OrderPage} />
               <PrivateRoute path="/payment" exact component={PaymentPage} />
               <PrivateRoute path="/ticket" exact component={TicketResult} />
-              <PrivateRoute path="/manage-movie" exact component={ManageMovie} />
-              <PrivateRoute path="/manage-schedule" exact component={ManageSchedule} />
-              <PrivateRoute path="/dashboard" exact component={Dashboard} />
+              <AdminRoute path="/manage-movie" exact component={ManageMovie} />
+              <AdminRoute path="/manage-schedule" exact component={ManageSchedule} />
+              <AdminRoute path="/dashboard" exact component={Dashboard} />
               <PrivateRoute path="/profile" exact component={Profile} />
             </Switch>
           </Router>
