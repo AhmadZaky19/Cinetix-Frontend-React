@@ -30,6 +30,10 @@
   padding-top: 3em;
 }
 
+.movie__list--admin {
+  margin-bottom: -70px;
+}
+
 .cardMovie__admin {
   width: 13rem !important;
   align-items: center !important;

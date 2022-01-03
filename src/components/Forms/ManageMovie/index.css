@@ -9,7 +9,8 @@
 }
 
 .movie__admin--img {
-  width: 63%;
+  height: 270px !important;
+  width: 70%;
   padding: 1em !important;
   margin-top: 2em;
   margin-left: 3em;

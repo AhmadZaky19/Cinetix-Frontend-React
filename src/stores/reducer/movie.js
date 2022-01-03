@@ -3,7 +3,8 @@ const initialState = {
   isError: false,
   msg: "",
   data: [],
-  pageInfo: {}
+  pageInfo: {},
+  isUpdate: false
 };
 
 const movie = (state = initialState, action) => {
@@ -60,6 +61,85 @@ const movie = (state = initialState, action) => {
         isError: true,
         msg: action.payload.response.data.msg,
         data: []
+      };
+    }
+    case "POST_MOVIE_PENDING": {
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+        msg: ""
+      };
+    }
+    case "POST_MOVIE_FULFILLED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        msg: action.payload.data.msg
+      };
+    }
+    case "POST_MOVIE_REJECTED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        msg: action.payload.response.data.msg
+      };
+    }
+    case "UPDATE_MOVIE_PENDING": {
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+        msg: ""
+      };
+    }
+    case "UPDATE_MOVIE_FULFILLED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        msg: action.payload.data.msg
+      };
+    }
+    case "UPDATE_MOVIE_REJECTED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        msg: action.payload.response.data.msg
+      };
+    }
+    case "DELETE_MOVIE_PENDING": {
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+        msg: ""
+      };
+    }
+    case "DELETE_MOVIE_FULFILLED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        msg: action.payload.data.msg
+      };
+    }
+    case "DELETE_MOVIE_REJECTED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        msg: "action.payload.response.data.msg"
+      };
+    }
+    case "SET_DATA_UPDATE": {
+      return {
+        ...state,
+        movies: action.movies,
+        isUpdate: true
       };
     }
     default: {
