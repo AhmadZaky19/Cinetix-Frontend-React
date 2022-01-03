@@ -39,7 +39,6 @@ const FormManageMovie = (props) => {
     for (const item in movieData) {
       formData.append(item, movieData[item]);
     }
-    console.log(movieData.id);
 
     props
       .updateMovie(movieData.id, formData)
@@ -52,17 +51,19 @@ const FormManageMovie = (props) => {
           releaseDate: "",
           durationHour: "",
           durationMinute: "",
-          synopsis: ""
+          synopsis: "",
+          image: null
         });
+        setImageMovie("");
         toast.success("Success update movie");
         props.getDataMovie("", "", "name", "ASC", 1, 4);
-        setTimeout(() => {
-          window.location.reload();
-        }, 1500);
+        // setTimeout(() => {
+        //   window.location.reload();
+        // }, 1500);
         props.movie.isUpdate = false;
       })
       .catch((err) => {
-        console.log(err.response);
+        toast.error("Update movie unsuccessful");
       });
   };
 
@@ -109,8 +110,10 @@ const FormManageMovie = (props) => {
         releaseDate: "",
         durationHour: "",
         durationMinute: "",
-        synopsis: ""
+        synopsis: "",
+        image: null
       });
+      setImageMovie("");
       toast.success("Success post movie");
       props.getDataMovie("", "", "name", "ASC", 1, 4);
     });
@@ -138,21 +141,21 @@ const FormManageMovie = (props) => {
     setMovieData({ ...props.movie.movies });
   }, [props.movie.movies]);
 
-  console.log(props.movie, "sujgvbsdhjk");
-
   return (
     <>
       <Row className="movie__admin">
         <h2 className="movie__admin--h2">Form Movie</h2>
         <ToastContainer />
-        <Form onSubmit={props.movie.isUpdate ? handleUpdateMovie : handlePostMovie}>
+        <Form onSubmit={props.movie.isUpdate ? handleUpdateMovie : handlePostMovie} className="p-0">
           <Card>
             <Row>
               <Col md={3}>
                 <div onClick={handleChangeFile}>
                   <Image
                     src={
-                      movieData.image
+                      imageMovie
+                        ? imageMovie
+                        : movieData.image
                         ? `${process.env.REACT_APP_URL_BACKEND}uploads/movie/${movieData.image}`
                         : "https://www.a1hosting.net/wp-content/themes/arkahost/assets/images/default.jpg"
                     }

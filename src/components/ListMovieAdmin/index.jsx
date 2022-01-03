@@ -73,8 +73,6 @@ const ListMovieAdmin = (props) => {
     getAllMovie();
   }, [order, page, paginate.limit]);
 
-  console.log(props.movie.data);
-
   return (
     <>
       <Row className="movie__admin">
