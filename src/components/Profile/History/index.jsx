@@ -48,7 +48,7 @@ const History = (props) => {
                         src={
                           item.premiere === "ebu.id"
                             ? EbvId
-                            : data.premiere === "hiflix"
+                            : item.premiere === "hiflix"
                             ? Hiflix
                             : CineOne21
                         }
