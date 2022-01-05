@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
@@ -85,7 +85,7 @@ class OrderPage extends Component {
                   <Card.Body className="movieBook__desc">
                     <h3>{this.state.dataMovie.name}</h3>
                     <Button className="movieBook__desc--change">
-                      <Link to="/home" className="back__to__home">
+                      <Link to="/" className="back__to__home">
                         Change movie
                       </Link>
                     </Button>
@@ -165,8 +165,8 @@ class OrderPage extends Component {
                 </div>
               </div>
               <div className="seat__booking desktop__only">
-                <Button href="/home" className="seat__booking--change">
-                  <Link to="/home" className="back__to__home">
+                <Button href="/" className="seat__booking--change">
+                  <Link to="/" className="back__to__home">
                     Change your movie
                   </Link>
                 </Button>

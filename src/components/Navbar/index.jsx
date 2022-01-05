@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Search } from "react-bootstrap-icons";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { Navbar, Container, Nav, Form, FormControl, Button, Image } from "react-bootstrap";
 import { getDataUser } from "../../stores/actions/user";
@@ -57,7 +57,7 @@ class Navigation extends Component {
 
   handleLogout = () => {
     localStorage.clear();
-    this.props.history.push("/home");
+    this.props.history.push("/");
   };
   render() {
     const token = localStorage.getItem("token");
@@ -78,22 +78,15 @@ class Navigation extends Component {
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll" className="nav__collapse">
               <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
-                <Nav.Link href="/home" className="nav__item">
+                <Nav.Link href="/" className="nav__item">
                   Home
-                </Nav.Link>
-                <Nav.Link href="#" className="nav__item">
-                  Payment
                 </Nav.Link>
                 <Nav.Link href="/profile" className="nav__item">
                   Profile
                 </Nav.Link>
               </Nav>
 
-              <Button
-                // variant="outline-light"
-                className="button__search"
-                onClick={this.handleSearch}
-              >
+              <Button className="button__search" onClick={this.handleSearch}>
                 {this.state.searchMenu ? (
                   <>
                     <Form className="d-flex">

@@ -40,7 +40,7 @@ const FormLogin = (props) => {
           }, 2000);
         } else {
           setTimeout(() => {
-            history.push("/home");
+            history.push("/");
           }, 2000);
         }
       });

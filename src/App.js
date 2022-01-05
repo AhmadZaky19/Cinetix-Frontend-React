@@ -43,7 +43,7 @@ class App extends Component {
                 exact
                 component={ConfirmPassword}
               />
-              <PrivateRoute path="/home" exact component={Home} />
+              <PrivateRoute path="/" exact component={Home} />
               <PrivateRoute path="/movie-detail/:id" exact component={MovieDetail} />
               <PrivateRoute path="/order" exact component={OrderPage} />
               <PrivateRoute path="/payment" exact component={PaymentPage} />

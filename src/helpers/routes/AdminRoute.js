@@ -15,7 +15,7 @@ const AdminRoute = ({ component: Component, ...rest }) => {
         isAuthentication && dataUser.role === "admin" ? (
           <Component {...props} />
         ) : (
-          <Redirect to="/home" />
+          <Redirect to="/" />
         )
       }
     />
