@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  LineElement,
+  CategoryScale,
+  PointElement,
+  LinearScale,
+  Title
+} from "chart.js";
+ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Title);
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getDashboard } from "../../../stores/actions/dashboard";
@@ -15,11 +24,12 @@ const Dashboard = () => {
   const dispatch = useDispatch();
 
   const [queryMovie, setQueryMovie] = useState({
-    page: 1,
-    limit: 1000,
-    search: "",
     month: "",
-    sort: "name ASC"
+    search: "",
+    sort: "name",
+    order: "ASC",
+    page: 1,
+    limit: 1000
   });
   const [payloadData, setPayloadData] = useState({
     movieId: "",
@@ -38,7 +48,6 @@ const Dashboard = () => {
       }
     ]
   });
-
   const options = {
     scales: {
       y: {
@@ -60,7 +69,7 @@ const Dashboard = () => {
       location: "",
       premiere: ""
     });
-
+    console.log(payloadData);
     Dashboard(payloadData);
   };
 
@@ -69,10 +78,10 @@ const Dashboard = () => {
   };
 
   const Dashboard = (params) => {
+    console.log(params);
     history.push(
       `/dashboard?movieId=${params.movieId}&location=${params.location}&premiere=${params.premiere}`
     );
-
     dispatch(getDashboard(params))
       .then((res) => {
         let newData = {
@@ -85,20 +94,22 @@ const Dashboard = () => {
             }
           ]
         };
-
         res.value.data.data.map((item) => {
           newData.labels.push(item.month);
           newData.datasets[0].data.push(item.total);
         });
-
         setData(newData);
+        // console.log(res);
+        // console.log(newData);
       })
       .catch((err) => {
-        console.log(err.response);
+        // console.log(err.response);
       });
   };
 
   useEffect(() => {
+    const { month, search, sort, order, page, limit } = queryMovie;
+    dispatch(getDataMovie(month, search, sort, order, page, limit));
     Dashboard(payloadData);
     document.title = "Dashboard";
   }, []);
@@ -124,7 +135,7 @@ const Dashboard = () => {
                 name="movieId"
                 onChange={changeText}
               >
-                <option selected>Select Movie</option>
+                <option value="">Select Movie</option>
                 {movie.data.map((item) => (
                   <option value={item.id} key={item.id}>
                     {item.name}
@@ -138,7 +149,7 @@ const Dashboard = () => {
                 name="premiere"
                 onChange={changeText}
               >
-                <option selected>Select Premiere</option>
+                <option value="">Select Premiere</option>
                 <option value="ebu.id">Ebv.id</option>
                 <option value="cineone21">CineOne21</option>
                 <option value="hiflix">Hiflix</option>
@@ -150,7 +161,7 @@ const Dashboard = () => {
                 name="location"
                 onChange={changeText}
               >
-                <option selected>Select Location</option>
+                <option value="">Select Location</option>
                 <option value="Jakarta Utara">Jakarta Utara</option>
                 <option value="Jakarta Timur">Jakarta Timur</option>
                 <option value="Jakarta Selatan">Jakarta Selatan</option>
