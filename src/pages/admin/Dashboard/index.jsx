@@ -1,11 +1,108 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import { Chart } from "react-google-charts";
+import { Line } from "react-chartjs-2";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { getDashboard } from "../../../stores/actions/dashboard";
+import { getDataMovie } from "../../../stores/actions/movie";
 import NavbarAdmin from "../../../components/NavbarAdmin";
 import Footer from "../../../components/Footer";
 import "./index.css";
 
 const Dashboard = () => {
+  const history = useHistory();
+  const movie = useSelector((state) => state.movie);
+  const dispatch = useDispatch();
+
+  const [queryMovie, setQueryMovie] = useState({
+    page: 1,
+    limit: 1000,
+    search: "",
+    month: "",
+    sort: "name ASC"
+  });
+  const [payloadData, setPayloadData] = useState({
+    movieId: "",
+    location: "",
+    premiere: ""
+  });
+  const [data, setData] = useState({
+    labels: [],
+    datasets: [
+      {
+        label: "# of Votes",
+        data: [],
+        fill: false,
+        backgroundColor: "rgb(255, 99, 132)",
+        borderColor: "rgba(255, 99, 132, 0.2)"
+      }
+    ]
+  });
+
+  const options = {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  };
+
+  const changeText = (event) => {
+    setPayloadData({
+      ...payloadData,
+      [event.target.name]: event.target.value
+    });
+  };
+
+  const handleReset = () => {
+    setPayloadData({
+      movieId: "",
+      location: "",
+      premiere: ""
+    });
+
+    Dashboard(payloadData);
+  };
+
+  const handleFilter = () => {
+    Dashboard(payloadData);
+  };
+
+  const Dashboard = (params) => {
+    history.push(
+      `/dashboard?movieId=${params.movieId}&location=${params.location}&premiere=${params.premiere}`
+    );
+
+    dispatch(getDashboard(params))
+      .then((res) => {
+        let newData = {
+          ...data,
+          labels: [],
+          datasets: [
+            {
+              ...data.datasets[0],
+              data: []
+            }
+          ]
+        };
+
+        res.value.data.data.map((item) => {
+          newData.labels.push(item.month);
+          newData.datasets[0].data.push(item.total);
+        });
+
+        setData(newData);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  };
+
+  useEffect(() => {
+    Dashboard(payloadData);
+    document.title = "Dashboard";
+  }, []);
+
   return (
     <>
       <NavbarAdmin />
@@ -13,37 +110,8 @@ const Dashboard = () => {
         <Row className="dashboard">
           <Col md={9}>
             <h2 className="dashboard__section">Dashboard</h2>
-            <div style={{ display: "flex", maxWidth: 900 }}>
-              <Chart
-                width={900}
-                height={340}
-                chartType="LineChart"
-                loader={<div>Loading Chart</div>}
-                data={[
-                  [
-                    { type: "number", label: "x" },
-                    { type: "number", label: "values" },
-                    { id: "i0", type: "number", role: "interval" },
-                    { id: "i1", type: "number", role: "interval" },
-                    { id: "i2", type: "number", role: "interval" },
-                    { id: "i2", type: "number", role: "interval" },
-                    { id: "i2", type: "number", role: "interval" },
-                    { id: "i2", type: "number", role: "interval" }
-                  ],
-                  [1, 100, 90, 110, 85, 96, 104, 120],
-                  [2, 120, 95, 130, 90, 113, 124, 140],
-                  [3, 130, 105, 140, 100, 117, 133, 139],
-                  [4, 90, 85, 95, 85, 88, 92, 95],
-                  [5, 70, 74, 63, 67, 69, 70, 72],
-                  [6, 30, 39, 22, 21, 28, 34, 40],
-                  [7, 80, 77, 83, 70, 77, 85, 90],
-                  [8, 100, 90, 110, 85, 95, 102, 110]
-                ]}
-                options={{
-                  intervals: { style: "sticks" },
-                  legend: "none"
-                }}
-              />
+            <div className="dashboard__graphic--comp">
+              <Line data={data} options={options} />
             </div>
           </Col>
           <Col md={3}>
@@ -52,15 +120,23 @@ const Dashboard = () => {
               <select
                 className="form-select filter__dashboard--item"
                 aria-label="Default select example"
+                defaultValue=""
+                name="movieId"
+                onChange={changeText}
               >
                 <option selected>Select Movie</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                {movie.data.map((item) => (
+                  <option value={item.id} key={item.id}>
+                    {item.name}
+                  </option>
+                ))}
               </select>
               <select
                 className="form-select filter__dashboard--item"
                 aria-label="Default select example"
+                defaultValue=""
+                name="premiere"
+                onChange={changeText}
               >
                 <option selected>Select Premiere</option>
                 <option value="ebu.id">Ebv.id</option>
@@ -70,19 +146,27 @@ const Dashboard = () => {
               <select
                 className="form-select filter__dashboard--item"
                 aria-label="Default select example"
+                defaultValue=""
+                name="location"
+                onChange={changeText}
               >
                 <option selected>Select Location</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="Jakarta Utara">Jakarta Utara</option>
+                <option value="Jakarta Timur">Jakarta Timur</option>
+                <option value="Jakarta Selatan">Jakarta Selatan</option>
+                <option value="Bandung">Bandung</option>
+                <option value="Semarang">Semarang</option>
               </select>
-              <Button className="dashboard__filter">Filter</Button>
-              <Button className="dashboard__reset">Reset</Button>
+              <Button className="dashboard__filter" onClick={handleFilter}>
+                Filter
+              </Button>
+              <Button className="dashboard__reset" onClick={handleReset}>
+                Reset
+              </Button>
             </div>
           </Col>
         </Row>
       </Container>
-      ;
       <Footer />
     </>
   );
