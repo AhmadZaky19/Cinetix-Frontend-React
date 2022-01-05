@@ -1,0 +1,92 @@
+.schedule__admin {
+  padding: 2em 7em;
+}
+
+.schedule__admin--h2 {
+  padding-left: 0px !important;
+  padding-bottom: 10px;
+  display: flex;
+}
+
+.form__schedule--left {
+  margin-right: 2em;
+}
+
+.form__ticket--price {
+  padding-top: 7px !important;
+}
+
+.schedule__admin--img {
+  width: 63%;
+  padding: 1em !important;
+  margin-top: 2em;
+  margin-left: 3em;
+}
+
+.schedule__admin--form {
+  padding-top: 2em;
+  padding-right: 3em;
+  background-color: #ffffff !important;
+}
+
+.schedule__date--range {
+  display: flex;
+}
+
+.schedule__date--start {
+  margin-right: 1em;
+}
+
+.schedule__premiere--button {
+  background-color: #ffffff !important;
+  border: none !important;
+  margin-right: 1em;
+}
+
+.schedule__premiere__button--img {
+  width: 100px;
+}
+
+.schedule__premiere--add {
+  width: 90px;
+  font-size: 20px !important;
+  padding: 0px 20px 4px !important;
+  margin-bottom: 20px;
+  background-color: #fcfdfe !important;
+  color: #5f2eea !important;
+  border-color: #5f2eea !important;
+}
+
+.schedule__premiere--time {
+  width: 90px;
+  margin-bottom: 20px;
+  font-size: 10px !important;
+  color: black !important;
+  background-color: #ffffff !important;
+  border: none !important;
+}
+
+.schedule__admin--button {
+  display: flex;
+  justify-content: right;
+  padding-right: 3em;
+  padding-bottom: 3em;
+}
+
+.schedule__admin__button--reset {
+  margin-right: 2em;
+  width: 12%;
+  background-color: #ffffff !important;
+  color: #5f2eea !important;
+  border-width: 3px !important;
+  border-color: #5f2eea !important;
+  font-weight: 500 !important;
+}
+
+.schedule__admin__button--submit {
+  width: 12%;
+  background-color: #5f2eea !important;
+  color: #ffffff !important;
+  border-color: #5f2eea !important;
+  font-weight: 500 !important;
+}

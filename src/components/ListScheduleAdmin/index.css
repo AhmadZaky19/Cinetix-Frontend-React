@@ -1,0 +1,78 @@
+.schedule__admin--sort {
+  display: flex;
+  align-items: flex-end !important;
+  margin-left: 40em;
+  padding-bottom: 10px;
+}
+
+.schedule__admin__sort--sort {
+  margin-left: 2em;
+  width: 117px !important;
+  border-radius: 0.8em;
+}
+
+.schedule__admin-section {
+  padding: 3em !important;
+}
+
+.schedule__admin--card {
+  margin-bottom: 25px;
+}
+
+.schedule__admin--image {
+  height: 90% !important;
+  width: 75% !important;
+  margin-top: 1em;
+  margin-left: 2.5em;
+  padding-right: 0.6em !important;
+  object-fit: contain;
+}
+
+.schedule__admin--location {
+  padding-top: 1em !important;
+}
+
+.schedule__admin--time {
+  padding: 0.2em 0.1em !important;
+  justify-content: space-between !important;
+  margin-bottom: 1.2em !important;
+  background-color: #ffffff !important;
+  color: #4e4b66 !important;
+  border: none !important;
+}
+
+.schedule__admin--ticket {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1em !important;
+  padding-right: 1em !important;
+  padding-bottom: 1em;
+}
+
+.schedule__admin--ticket__info h5 {
+  color: #6b6b6b;
+}
+
+.showtime__schedule--book {
+  width: 100%;
+  background-color: #5f2eea !important;
+}
+
+.schedule__admin--button2 {
+  text-align: center;
+}
+
+.button2__update {
+  width: 45%;
+  color: #5f2eea !important;
+  background-color: #ffffff !important;
+  border-color: #5f2eea !important;
+}
+
+.button2__delete {
+  width: 45%;
+  color: #ed2e7e !important;
+  background-color: #ffffff !important;
+  border-color: #ed2e7e !important;
+}
