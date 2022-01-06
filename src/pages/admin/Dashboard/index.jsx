@@ -48,6 +48,8 @@ const Dashboard = () => {
       }
     ]
   });
+  const [resetData, setResetData] = useState(false);
+
   const options = {
     scales: {
       y: {
@@ -69,8 +71,7 @@ const Dashboard = () => {
       location: "",
       premiere: ""
     });
-    console.log(payloadData);
-    Dashboard(payloadData);
+    setResetData(true);
   };
 
   const handleFilter = () => {
@@ -78,33 +79,26 @@ const Dashboard = () => {
   };
 
   const Dashboard = (params) => {
-    console.log(params);
     history.push(
       `/dashboard?movieId=${params.movieId}&location=${params.location}&premiere=${params.premiere}`
     );
-    dispatch(getDashboard(params))
-      .then((res) => {
-        let newData = {
-          ...data,
-          labels: [],
-          datasets: [
-            {
-              ...data.datasets[0],
-              data: []
-            }
-          ]
-        };
-        res.value.data.data.map((item) => {
-          newData.labels.push(item.month);
-          newData.datasets[0].data.push(item.total);
-        });
-        setData(newData);
-        // console.log(res);
-        // console.log(newData);
-      })
-      .catch((err) => {
-        // console.log(err.response);
+    dispatch(getDashboard(params)).then((res) => {
+      let newData = {
+        ...data,
+        labels: [],
+        datasets: [
+          {
+            ...data.datasets[0],
+            data: []
+          }
+        ]
+      };
+      res.value.data.data.map((item) => {
+        newData.labels.push(item.month);
+        newData.datasets[0].data.push(item.total);
       });
+      setData(newData);
+    });
   };
 
   useEffect(() => {
@@ -113,6 +107,13 @@ const Dashboard = () => {
     Dashboard(payloadData);
     document.title = "Dashboard";
   }, []);
+
+  useEffect(() => {
+    if (resetData) {
+      Dashboard(payloadData);
+      setResetData(false);
+    }
+  }, [resetData]);
 
   return (
     <>
@@ -131,9 +132,9 @@ const Dashboard = () => {
               <select
                 className="form-select filter__dashboard--item"
                 aria-label="Default select example"
-                defaultValue=""
                 name="movieId"
                 onChange={changeText}
+                value={payloadData.movieId}
               >
                 <option value="">Select Movie</option>
                 {movie.data.map((item) => (
@@ -145,9 +146,9 @@ const Dashboard = () => {
               <select
                 className="form-select filter__dashboard--item"
                 aria-label="Default select example"
-                defaultValue=""
                 name="premiere"
                 onChange={changeText}
+                value={payloadData.premiere}
               >
                 <option value="">Select Premiere</option>
                 <option value="ebu.id">Ebv.id</option>
@@ -157,9 +158,9 @@ const Dashboard = () => {
               <select
                 className="form-select filter__dashboard--item"
                 aria-label="Default select example"
-                defaultValue=""
                 name="location"
                 onChange={changeText}
+                value={payloadData.location}
               >
                 <option value="">Select Location</option>
                 <option value="Jakarta Utara">Jakarta Utara</option>
