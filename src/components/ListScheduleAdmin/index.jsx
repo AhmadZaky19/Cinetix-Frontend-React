@@ -6,7 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { useHistory } from "react-router-dom";
 import { getDataMovie } from "../../stores/actions/movie";
 import {
-  getScheduleById,
+  getSchedule,
   updateSchedule,
   deleteSchedule,
   setDataUpdate
@@ -47,7 +47,7 @@ const ListScheduleAdmin = (props) => {
   const [sort, setSort] = useState("");
 
   const getAllSchedule = () => {
-    props.getScheduleById("", "", sort, filter.order, filter.page, filter.limit).then((res) => {
+    props.getSchedule("", "", sort, filter.order, filter.page, filter.limit).then((res) => {
       setAllSchedule(res.value.data.data);
       // setFilter({ ...filter, totalPage: res.data.pagination.totalPage });
     });
@@ -62,7 +62,7 @@ const ListScheduleAdmin = (props) => {
     if (userClick) {
       props.deleteSchedule(id).then(() => {
         props
-          .getScheduleById("", "", filter.sort, filter.order, filter.page, filter.limit)
+          .getSchedule("", "", filter.sort, filter.order, filter.page, filter.limit)
           .then((res) => {
             setAllSchedule(res.value.data.data);
             toast.success("Delete movie success");
@@ -256,7 +256,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getScheduleById,
+  getSchedule,
   getDataMovie
 };
 

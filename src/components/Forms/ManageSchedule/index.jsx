@@ -3,7 +3,7 @@ import { Row, Card, Col, Form, Button, Image, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { getDataMovie, getDataMovieById } from "../../../stores/actions/movie";
-import { getScheduleById, postSchedule, updateSchedule } from "../../../stores/actions/schedule";
+import { getSchedule, postSchedule, updateSchedule } from "../../../stores/actions/schedule";
 import CineOne from "../../../assets/img/cineone.png";
 import Ebv from "../../../assets/img/ebuid.png";
 import Hiflix from "../../../assets/img/hiflix.png";
@@ -111,7 +111,7 @@ const FormManageSchedule = (props) => {
   };
 
   const getAllSchedule = () => {
-    props.getScheduleById("", "", "", filter.order, filter.page, filter.limit).then((res) => {
+    props.getSchedule("", "", "", filter.order, filter.page, filter.limit).then((res) => {
       setSchedule(res.value.data.data);
       props.allSchedule(res.value.data.data);
       console.log(res.value.data.data);
@@ -321,7 +321,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getScheduleById,
+  getSchedule,
   postSchedule,
   getDataMovie,
   getDataMovieById

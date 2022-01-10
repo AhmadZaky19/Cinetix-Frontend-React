@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import Pagination from "react-paginate";
 import { useHistory } from "react-router-dom";
 import { getDataMovieById } from "../../../stores/actions/movie";
-import { getScheduleById } from "../../../stores/actions/schedule";
+import { getSchedule } from "../../../stores/actions/schedule";
 import axios from "../../../utils/axios";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
@@ -49,7 +49,7 @@ const MovieDetail = (props) => {
 
   const getSchedule = () => {
     props
-      .getScheduleById(city, movieId, "DESC", page, paginate.limit)
+      .getSchedule(city, movieId, "", "DESC", page, paginate.limit)
       .then((res) => {
         setSchedules(res.value.data.data);
         setPaginate({ ...paginate, totalPage: res.value.data.pagination.totalPage });
@@ -265,7 +265,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   getDataMovieById,
-  getScheduleById
+  getSchedule
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetail);

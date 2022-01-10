@@ -9,7 +9,7 @@ const initialState = {
 
 const schedule = (state = initialState, action) => {
   switch (action.type) {
-    case "GET_SCHEDULE_BY_ID_PENDING": {
+    case "GET_SCHEDULE_PENDING": {
       return {
         ...state,
         isLoading: true,
@@ -17,7 +17,7 @@ const schedule = (state = initialState, action) => {
         msg: ""
       };
     }
-    case "GET_SCHEDULE_BY_ID_FULFILLED": {
+    case "GET_SCHEDULE_FULFILLED": {
       return {
         ...state,
         isLoading: false,
@@ -27,7 +27,7 @@ const schedule = (state = initialState, action) => {
         pageInfo: action.payload.data.pagination
       };
     }
-    case "GET_SCHEDULE_BY_ID_REJECTED": {
+    case "GET_SCHEDULE_REJECTED": {
       return {
         ...state,
         isLoading: false,

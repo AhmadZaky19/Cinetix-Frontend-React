@@ -1,6 +1,6 @@
 import axios from "../../utils/axios";
 
-export const getScheduleById = (location, movieId, sort, order, page, limit) => {
+export const getSchedule = (location, movieId, sort, order, page, limit) => {
   return {
     type: "GET_SCHEDULE_BY_ID",
     payload: axios.get(
