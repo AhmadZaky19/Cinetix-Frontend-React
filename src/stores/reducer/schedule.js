@@ -3,12 +3,13 @@ const initialState = {
   isError: false,
   msg: "",
   data: [],
-  pageInfo: {}
+  pageInfo: {},
+  isUpdate: false
 };
 
 const schedule = (state = initialState, action) => {
   switch (action.type) {
-    case "SCHEDULE_BY_ID_PENDING": {
+    case "GET_SCHEDULE_BY_ID_PENDING": {
       return {
         ...state,
         isLoading: true,
@@ -16,7 +17,7 @@ const schedule = (state = initialState, action) => {
         msg: ""
       };
     }
-    case "SCHEDULE_BY_ID_FULFILLED": {
+    case "GET_SCHEDULE_BY_ID_FULFILLED": {
       return {
         ...state,
         isLoading: false,
@@ -26,7 +27,7 @@ const schedule = (state = initialState, action) => {
         pageInfo: action.payload.data.pagination
       };
     }
-    case "SCHEDULE_BY_ID_REJECTED": {
+    case "GET_SCHEDULE_BY_ID_REJECTED": {
       return {
         ...state,
         isLoading: false,
@@ -34,6 +35,85 @@ const schedule = (state = initialState, action) => {
         msg: action.payload.response.data.msg,
         data: [],
         pageInfo: {}
+      };
+    }
+    case "POST_SCHEDULE_PENDING": {
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+        msg: ""
+      };
+    }
+    case "POST_SCHEDULE_FULFILLED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        msg: action.payload.data.msg
+      };
+    }
+    case "POST_SCHEDULE_REJECTED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        msg: action.payload.response.data.msg
+      };
+    }
+    case "UPDATE_SCHEDULE_PENDING": {
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+        msg: ""
+      };
+    }
+    case "UPDATE_SCHEDULE_FULFILLED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        msg: action.payload.data.msg
+      };
+    }
+    case "UPDATE_SCHEDULE_REJECTED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        msg: action.payload.response.data.msg
+      };
+    }
+    case "DELETE_SCHEDULE_PENDING": {
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+        msg: ""
+      };
+    }
+    case "DELETE_SCHEDULE_FULFILLED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        msg: action.payload.data.msg
+      };
+    }
+    case "DELETE_SCHEDULE_REJECTED": {
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        msg: "action.payload.response.data.msg"
+      };
+    }
+    case "SET_DATA_UPDATE": {
+      return {
+        ...state,
+        schedules: action.schedules,
+        isUpdate: true
       };
     }
     default: {

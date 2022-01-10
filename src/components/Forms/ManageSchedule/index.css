@@ -17,7 +17,8 @@
 }
 
 .schedule__admin--img {
-  width: 63%;
+  height: 270px !important;
+  width: 70%;
   padding: 1em !important;
   margin-top: 2em;
   margin-left: 3em;
@@ -60,7 +61,8 @@
 .schedule__premiere--time {
   width: 90px;
   margin-bottom: 20px;
-  font-size: 10px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
   color: black !important;
   background-color: #ffffff !important;
   border: none !important;
@@ -71,6 +73,10 @@
   justify-content: right;
   padding-right: 3em;
   padding-bottom: 3em;
+}
+
+.schedule__premiere--button--select {
+  border: 2px solid #5f2eea !important;
 }
 
 .schedule__admin__button--reset {

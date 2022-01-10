@@ -1,10 +1,38 @@
 import axios from "../../utils/axios";
 
-export const getScheduleById = (location, movieId, order, page, limit) => {
+export const getScheduleById = (location, movieId, sort, order, page, limit) => {
   return {
-    type: "SCHEDULE_BY_ID",
+    type: "GET_SCHEDULE_BY_ID",
     payload: axios.get(
-      `schedule/?location=${location}&movieId=${movieId}&order=${order}&page=${page}&limit=${limit}`
+      `schedule/?location=${location}&movieId=${movieId}&sort=${sort}&order=${order}&page=${page}&limit=${limit}`
     )
+  };
+};
+
+export const postSchedule = (data) => {
+  return {
+    type: "POST_SCHEDULE",
+    payload: axios.post("schedule/", data)
+  };
+};
+
+export const updateSchedule = (id, data) => {
+  return {
+    type: "UPDATE_SCHEDULE",
+    payload: axios.patch(`schedule/${id}`, data)
+  };
+};
+
+export const deleteSchedule = (id) => {
+  return {
+    type: "DELETE_SCHEDULE",
+    payload: axios.delete(`schedule/${id}`)
+  };
+};
+
+export const setDataUpdate = (data) => {
+  return {
+    type: "SET_DATA_UPDATE",
+    schedules: data
   };
 };
