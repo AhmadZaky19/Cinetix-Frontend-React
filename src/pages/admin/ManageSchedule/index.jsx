@@ -7,16 +7,16 @@ import Footer from "../../../components/Footer";
 import "./index.css";
 
 const ManageSchedule = () => {
-  const [schedule, setSchedule] = useState({});
-  const [dataAllSchedule, setAllSchedule] = useState([]);
+  // const [schedule, setSchedule] = useState({});
+  // const [dataAllSchedule, setAllSchedule] = useState([]);
 
-  const getAllSchedule = (data) => {
-    setAllSchedule(data);
-  };
+  // const getAllSchedule = (data) => {
+  //   setAllSchedule(data);
+  // };
 
-  const getSelectedSchedule = (data) => {
-    setSchedule(data);
-  };
+  // const getSelectedSchedule = (data) => {
+  //   setSchedule(data);
+  // };
 
   useEffect(() => {
     document.title = "Manage Schedule";
@@ -26,10 +26,12 @@ const ManageSchedule = () => {
     <>
       <NavAdmin />
       <Container fluid className="schedule__admin--page">
-        <FormManageSchedule allSchedule={getAllSchedule} schedule={schedule} />
+        <FormManageSchedule
+        // allSchedule={getAllSchedule} schedule={schedule}
+        />
         <ListScheduleAdmin
-          dataAllSchedule={dataAllSchedule}
-          selectedSchedule={getSelectedSchedule}
+        // dataAllSchedule={dataAllSchedule}
+        // selectedSchedule={getSelectedSchedule}
         />
       </Container>
       <Footer />

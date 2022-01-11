@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Row, Card, Col, Form, Button, Image, Modal } from "react-bootstrap";
+import { Row, Card, Col, Form, Button, Image } from "react-bootstrap";
 import { connect } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { getDataMovie, getDataMovieById } from "../../../stores/actions/movie";
@@ -8,7 +8,6 @@ import CineOne from "../../../assets/img/cineone.png";
 import Ebv from "../../../assets/img/ebuid.png";
 import Hiflix from "../../../assets/img/hiflix.png";
 import "./index.css";
-import axios from "../../../utils/axios";
 
 const premiereList = [
   { id_premiere: 1, premiere: "ebu.id", img_premiere: Ebv },
@@ -17,7 +16,6 @@ const premiereList = [
 ];
 
 const FormManageSchedule = (props) => {
-  const [isUpdate, setIsUpdate] = useState(false);
   const [showInput, setShowInput] = useState(false);
   const [cities, setCities] = useState([
     "",
@@ -27,10 +25,10 @@ const FormManageSchedule = (props) => {
     "Jakarta Utara",
     "Jakarta Timur"
   ]);
-  const { dataMovie } = props;
+  // const { dataMovie } = props;
   const [movieList, setMovieList] = useState([]);
-  const [schedule, setSchedule] = useState({});
   const [imagePreview, setImagePreview] = useState("");
+  const imageUpdate = props.schedule.data.map((item) => item.image);
   const [form, setForm] = useState({
     movieId: "",
     premiere: "",
@@ -39,15 +37,6 @@ const FormManageSchedule = (props) => {
     dateStart: "",
     dateEnd: "",
     time: []
-  });
-  const [filter, setFilter] = useState({
-    location: "",
-    movieId: "",
-    sort: "",
-    order: "ASC",
-    page: 1,
-    limit: 6,
-    totalPage: 0
   });
 
   const handleChange = (e) => {
@@ -58,41 +47,6 @@ const FormManageSchedule = (props) => {
         setImagePreview(res.value.data.data[0].image);
       });
     }
-  };
-
-  const updateSchedule = () => {
-    // const { location, movieId, sort, order, page, limit } = filter;
-    // const data = { ...form, time: form.time.join(",") };
-    // axios.patch(`schedule/${schedule.id_schedule}`, data).then((res) => {
-    //   const getData = getAllSchedule(location, movieId, sort, order, page, limit);
-    //   setIsUpdate(false);
-    //   setForm({
-    //     ...form,
-    //     movieId: "",
-    //     premiere: "",
-    //     price: "",
-    //     location: "",
-    //     dateStart: "",
-    //     dateEnd: "",
-    //     time: []
-    //   });
-    //   toast.success("Success update schedule");
-    //   setSchedule([]);
-    //   setImagePreview("");
-    // });
-  };
-
-  const handleResetForm = () => {
-    setForm({
-      movieId: "",
-      premiere: "",
-      price: "",
-      location: "",
-      dateStart: "",
-      dateEnd: "",
-      time: []
-    });
-    setImagePreview("");
   };
 
   const postSchedule = () => {
@@ -106,17 +60,35 @@ const FormManageSchedule = (props) => {
     props.postSchedule(data).then((res) => {
       toast.success("Success add schedule");
       handleResetForm();
-      getAllSchedule();
+      props.getSchedule("", "", "", "ASC", 1, 6);
     });
   };
 
-  const getAllSchedule = () => {
-    props.getSchedule("", "", "", filter.order, filter.page, filter.limit).then((res) => {
-      setSchedule(res.value.data.data);
-      props.allSchedule(res.value.data.data);
-      console.log(res.value.data.data);
-      // setFilter({ ...filter, totalPage: res.data.pagination.totalPage });
+  const updateSchedule = () => {
+    const data = { ...form, time: form.time.join(",") };
+    props.updateSchedule(form.id, data).then((res) => {
+      toast.success("Success update schedule");
+      handleResetForm();
+      props.getSchedule("", "", "", "ASC", 1, 6);
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+      props.schedule.isUpdate = false;
     });
+  };
+
+  const handleResetForm = () => {
+    setForm({
+      movieId: "",
+      premiere: "",
+      price: "",
+      location: "",
+      dateStart: "",
+      dateEnd: "",
+      time: []
+    });
+    setImagePreview("");
+    props.schedule.isUpdate = false;
   };
 
   const getAllMovie = () => {
@@ -137,26 +109,9 @@ const FormManageSchedule = (props) => {
   };
 
   useEffect(() => {
-    if (Object.keys(schedule).length > 0) {
-      setIsUpdate(true);
-      setImagePreview(schedule.image);
-      setForm(schedule);
-    } else {
-      setForm({
-        ...form,
-        movieId: "",
-        premiere: "",
-        price: "",
-        location: "",
-        dateStart: "",
-        dateEnd: "",
-        time: []
-      });
-    }
     getAllMovie();
-    setSchedule(props.schedule);
-    getAllSchedule();
-  }, []);
+    setForm({ ...form, ...props.schedule.schedules });
+  }, [props.schedule.schedules]);
 
   return (
     <>
@@ -170,6 +125,8 @@ const FormManageSchedule = (props) => {
                 src={
                   imagePreview
                     ? `${process.env.REACT_APP_URL_BACKEND}uploads/movie/${imagePreview}`
+                    : form.image
+                    ? `${process.env.REACT_APP_URL_BACKEND}uploads/movie/${form.image}`
                     : "https://www.a1hosting.net/wp-content/themes/arkahost/assets/images/default.jpg"
                 }
                 className="schedule__admin--img"
@@ -305,9 +262,9 @@ const FormManageSchedule = (props) => {
             </Button>
             <Button
               className="schedule__admin__button--submit"
-              onClick={!isUpdate ? postSchedule : updateSchedule}
+              onClick={props.schedule.isUpdate ? updateSchedule : postSchedule}
             >
-              {!isUpdate ? "Submit" : "Update"}
+              {props.schedule.isUpdate ? "Update" : "Submit"}
             </Button>
           </div>
         </Card>
@@ -317,12 +274,14 @@ const FormManageSchedule = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  dataMovie: state.getDataMovie
+  dataMovie: state.getDataMovie,
+  schedule: state.schedule
 });
 
 const mapDispatchToProps = {
   getSchedule,
   postSchedule,
+  updateSchedule,
   getDataMovie,
   getDataMovieById
 };

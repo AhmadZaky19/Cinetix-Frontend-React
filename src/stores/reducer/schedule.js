@@ -4,7 +4,8 @@ const initialState = {
   msg: "",
   data: [],
   pageInfo: {},
-  isUpdate: false
+  isUpdate: false,
+  schedules: {}
 };
 
 const schedule = (state = initialState, action) => {
