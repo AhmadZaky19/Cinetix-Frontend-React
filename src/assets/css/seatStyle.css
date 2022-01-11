@@ -16,8 +16,9 @@
   padding-left: 50px;
   padding-right: 50px;
 }
-.card .seat {
+.seat {
   justify-content: center;
+  border: none !important;
 }
 
 .alphabet {
@@ -26,8 +27,9 @@
 }
 .card {
   /* width: 90% !important; */
-  border: none !important;
+  /* border: none !important; */
 }
+
 .card-body {
   padding: 12px !important;
 }

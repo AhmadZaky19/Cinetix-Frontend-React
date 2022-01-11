@@ -109,6 +109,7 @@
   margin-bottom: 6em;
   border-radius: 10px !important;
   border-color: #dedede !important;
+  border: 1px solid #dedede !important;
 }
 
 .cardMovie__upcoming--title {

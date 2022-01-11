@@ -178,7 +178,7 @@ class OrderPage extends Component {
             <Col xs={12} sm={12} md={4} className="order__info">
               {" "}
               <h2>Order Info</h2>
-              <Card className="card">
+              <Card className="card order__info--card">
                 <Card.Body className="right">
                   <Col className="text-center">
                     <img

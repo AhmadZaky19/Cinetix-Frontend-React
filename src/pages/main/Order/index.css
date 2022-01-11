@@ -6,6 +6,8 @@
 .movieBook {
   margin-top: 2em;
   margin-bottom: 3em;
+  border: none !important;
+  border-radius: 6px !important;
 }
 
 .movieBook__desc {
@@ -74,6 +76,11 @@
 
 .order__info h2 {
   padding-bottom: 0.7em;
+}
+
+.order__info--card {
+  border-radius: 6px !important;
+  border: none !important;
 }
 
 .right {
