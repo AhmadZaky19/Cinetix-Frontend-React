@@ -10,7 +10,7 @@ const ConfirmPassword = () => {
   }, []);
   return (
     <div className={`${styles.contain} container-fluid`}>
-      <div className="row">
+      <div className="row gx-0">
         <div className={`${styles.column1} col-md-7 d-none d-md-inline-block`}>
           <div className={`${styles.row__overlay}`}>
             <span className={`${styles.row__overlay__title}`}>
