@@ -141,7 +141,7 @@ class OrderPage extends Component {
                       </div>
                     ))}
                   </div>
-                  <div className="seating-key">
+                  <div className="seating-key px-4">
                     <span>Seating key</span>
                     <div className="seat-desc">
                       <div className="seat-item seat-available">

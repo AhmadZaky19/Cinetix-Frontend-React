@@ -8,21 +8,25 @@
   /* height: 600px; */
   padding: 16px 0;
   background-color: #ffffff;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   font-size: 12px;
   border-radius: 6px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 .card .seat {
   justify-content: center;
 }
+
 .alphabet {
+  margin-top: 4px !important;
   width: 28px;
 }
 .card {
   /* width: 90% !important; */
-  border: none;
+  border: none !important;
 }
 .card-body {
   padding: 12px !important;
@@ -33,8 +37,8 @@
 
 .seat__list {
   padding: 4px;
-  width: 22px;
-  height: 22px;
+  width: 28px;
+  height: 28px;
   border-radius: 25%;
   cursor: pointer;
   display: flex;
