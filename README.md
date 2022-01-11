@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Cinetix App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+    <img width="250" src="./src/assets/img/tickitz purple.png">
+</div>
 
-## Available Scripts
+## Contents
 
-In the project directory, you can run:
+- [Description](#description)
+- [Features](#features)
+- [Techs](#techs)
+- [Installation](#installation-for-development)
+- [Screenshoots](#screenshoots)
+- [Demo Project](#demo-project)
+- [Backend Repository](#backend-repository)
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Cinetix App** is a simple ticketing website/application that can facilitating consumers to booking a ticket in a cinema, and also have feature for admin to manage movie and schedule in this app. this is the repository for the frontend, you can check the backend repository below.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+Features in this project:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Authentification(Login, Register)
+- Order movie by choosing date, premiere, seat
+- Dashboard (admin only)
+- Manage movie & schedule (admin only)
 
-### `npm run build`
+## Techs
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Tech that use in this project:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Nodejs](https://nodejs.org/en/docs/)
+- [Reactjs](https://reactjs.org/docs/getting-started.html)
+- [Netlify](https://app.netlify.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation for Development
 
-### `npm run eject`
+1. Open your terminal or command prompt
+2. Type `git clone https://github.com/AhmadZaky19/Cinetix-Frontend.git`
+3. Type `npm install` to installing dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Screenshoots
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Login page
+![image](https://user-images.githubusercontent.com/64245462/148922166-e74e100f-c915-49f3-8b31-05d2476e9251.png)
+- Home page
+![image](https://user-images.githubusercontent.com/64245462/148930525-2ac6ab24-a7c7-4529-b772-14a4d7a18854.png)
+- Movie Detail page
+![image](https://user-images.githubusercontent.com/64245462/148930743-104855b6-d0a2-4704-8c8f-8aa49ae479b9.png)
+- Order page
+![image](https://user-images.githubusercontent.com/64245462/148930886-65957dcc-604b-4534-930a-69501db6360a.png)
+- Manage movie page (admin)
+![image](https://user-images.githubusercontent.com/64245462/148931077-8f5002c7-cc44-49df-a7cb-f995885b5567.png)
+## Demo Project
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+For the aplication you can try it in [[here](https://cinetix.netlify.app)]
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Backend Repository
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+For the backend repository you can check it in [here](https://github.com/AhmadZaky19/Cinetix-Backend)
