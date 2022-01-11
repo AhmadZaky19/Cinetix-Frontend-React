@@ -1,57 +1,37 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import { login } from "../../../stores/actions/auth";
 import { getDataUser } from "../../../stores/actions/user";
 import styles from "./FormResetPass.module.css";
 import TickitzPurple from "../../../assets/img/tickitz purple.png";
-import Google from "../../../assets/img/google.png";
-import Facebook from "../../../assets/img/facebook.png";
 
 const FormResetPassword = (props) => {
-  // handleChangeForm = (event) => {
-  //   this.setState({
-  //     form: {
-  //       ...this.state.form,
-  //       [event.target.name]: event.target.value
-  //     }
-  //   });
-  // };
+  const [form, setForm] = useState({
+    email: ""
+  });
 
-  // handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   this.props
-  //     .login(this.state.form)
-  //     .then((res) => {
-  //       localStorage.setItem("token", res.value.data.data.token);
-  //       this.props.getDataUser(res.value.data.data.id).then((res) => {
-  //         localStorage.setItem("role", res.value.data.data[0].role);
-  //         if (res.value.data.data[0].role === "admin") {
-  //           this.props.history.push("/manage-movie");
-  //         } else {
-  //           this.props.history.push("/home");
-  //         }
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       this.setState({
-  //         isError: true
-  //       });
-  //       setTimeout(() => {
-  //         this.setState({
-  //           isError: false
-  //         });
-  //       }, 3000);
-  //     });
-  // };
+  const [isError, setError] = useState(props.auth.msg);
 
-  // handleReset = (event) => {
-  //   event.preventDefault();
-  // };
+  const handleChangeInput = (event) => {
+    setForm({ ...form, [event.target.name]: event.target.value });
+  };
 
-  // const { isError, msg } = this.props.auth;
+  const handleForgotPassword = async (event) => {
+    try {
+      event.preventDefault();
+      const { email } = form;
+      // console.log(email);
+      const response = await props.ForgotPassword(email);
+      setError(response.value.data.msg);
+      toast.success(`${response.value.data.msg}`);
+    } catch (error) {
+      toast.error("Email not found!");
+    }
+  };
+
   return (
     <div className={`${styles.form}`}>
       <div className={`${styles.form__input}`}>
@@ -62,7 +42,6 @@ const FormResetPassword = (props) => {
         <p>we will send a link to your email shortly</p>
       </div>
       <div>
-        {/* {this.state.isError && <div className="alert alert-danger">{msg}</div>} */}
         <form
         // onSubmit={this.handleSubmit}
         // onReset={this.handleReset}
